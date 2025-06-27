@@ -163,18 +163,20 @@ def make_explorer_class(process_args, prod_hostname=None):
             self._begin_response(200, "text/html")
             self.end_headers()
             user_code = self.params["code"][0]
+            self.wfile.write(b"<pre>")
+            jit_options = self._render_options(
+                "--zjit",
+                "--zjit-dump-hir",
+                # ("--zjit-num-profiles", 1),
+                # ("--zjit-call-threshold", 1),
+            )
+            timeout = ["timeout", "--signal=KILL", f"{TIMEOUT_SEC}s"]
             with tempfile.TemporaryDirectory() as tmp:
                 main_code_path = os.path.join(tmp, "main.rb")
+                cmd = [*timeout, runtime, *jit_options, main_code_path]
+                self.wfile.write(b"$ " + " ".join(shlex.quote(c) for c in cmd).encode("utf-8") + b"\n")
                 with open(main_code_path, "w+") as f:
                     f.write(user_code)
-                jit_options = self._render_options(
-                    "--zjit",
-                    "--zjit-dump-hir",
-                    # ("--zjit-num-profiles", 1),
-                    # ("--zjit-call-threshold", 1),
-                )
-                timeout = ["timeout", "--signal=KILL", f"{TIMEOUT_SEC}s"]
-                cmd = [*timeout, runtime, *jit_options, main_code_path]
                 try:
                     result = run(
                         cmd,
@@ -190,11 +192,9 @@ def make_explorer_class(process_args, prod_hostname=None):
                         self.wfile.write(f"<pre>{escaped}</pre>".encode("utf-8"))
                         return
                     print(e.stderr)
-                    self.wfile.write(b"Internal server error")
+                    self.wfile.write(e.stderr.encode("utf-8"))
+                    self.wfile.write(b"</pre>")
                     return
-            self.wfile.write(b"<pre>")
-            print(cmd)
-            self.wfile.write(b"$ " + " ".join(shlex.quote(c) for c in cmd).encode("utf-8") + b"\n")
             self.wfile.write(result.stdout.encode("utf-8"))
             self.wfile.write(b"</pre>")
 
