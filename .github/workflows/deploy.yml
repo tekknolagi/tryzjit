@@ -11,15 +11,9 @@ jobs:
     permissions:
       deployments: write
 
-    # Only run one deployment at a time per PR.
+    # Only run one deployment at a time per commit.
     concurrency:
       group: tryzjit
-
-    # Create a GitHub deployment environment per staging app so it shows up
-    # in the pull request UI.
-    environment:
-      name: tryzjit
-      url: ${{ steps.deploy.outputs.url }}
 
     steps:
       - uses: actions/checkout@v4
