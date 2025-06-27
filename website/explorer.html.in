@@ -144,8 +144,10 @@ test
           <input type="text" id="share-url" name="share-url" value="" onclick="this.select();" readonly/>
           <br />
           <br />
-          <label for="code">Put some Python in the box. Currently only one
-            function, <code>test</code>, is supported.</label>
+          <label for="code">Put some Ruby in the box. Currently only functions
+            called <code>zjit-call-threshold</code> number of times will be
+            compiled.</label>
+          <br />
           <br />
           <div id="editor"></div>
         </form>
