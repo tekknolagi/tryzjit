@@ -11,6 +11,7 @@ jobs:
 
     permissions:
       deployments: write
+      contents: read
 
     # Only run one deployment at a time per PR.
     concurrency:
