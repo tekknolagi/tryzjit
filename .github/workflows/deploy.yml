@@ -5,8 +5,11 @@ on:
     branches: [ trunk ]
 
 jobs:
-  stage_app:
+  deploy_app:
     runs-on: ubuntu-latest
+
+    permissions:
+      deployments: write
 
     # Only run one deployment at a time per PR.
     concurrency:
