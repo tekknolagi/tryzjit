@@ -19,7 +19,11 @@ RUN ./autogen.sh
 RUN ./configure --enable-zjit=dev --disable-yjit
 RUN make -sj $(nproc)
 
-FROM build as explorer
+FROM ubuntu:24.04 as server_builder
+RUN apt -y update
+RUN apt install -y python3
+
+FROM server_builder as explorer
 COPY --from=build /app/ruby/ruby /usr/local/bin/ruby
 COPY website/ /app/website
 WORKDIR /app/website
