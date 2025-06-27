@@ -3,7 +3,7 @@ name: Deploy preview on fly.io
 on:
   pull_request:
     branches: [ trunk ]
-    types: [ opened, reopened, closed ]
+    types: [ opened, reopened, edited, synchronized, closed ]
 
 jobs:
   stage_app:
