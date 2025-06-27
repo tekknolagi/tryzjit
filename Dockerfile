@@ -23,4 +23,4 @@ FROM build as explorer
 COPY --from=build /app/ruby/ruby /usr/local/bin/ruby
 COPY website/ /app/website
 WORKDIR /app/website
-ENTRYPOINT python3 gen.py explorer --runtime /usr/local/bin/ruby --host 0.0.0.0
+ENTRYPOINT python3 gen.py explorer --runtime /usr/local/bin/ruby --ipv6
