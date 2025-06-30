@@ -13,7 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-ENV RUBY_REVISION=0828dff3f8bb345e8d79d5cdbbe0a207f8e2a7b7
+# ZJIT: Enable bootstraptest/test_block.rb 2025-06-30
+ENV RUBY_REVISION=2287dd4af2959dc080f4aed0f2edd30b60d62b2d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
