@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# ZJIT: Enable bootstraptest/test_block.rb 2025-06-30
-ENV RUBY_REVISION=2287dd4af2959dc080f4aed0f2edd30b60d62b2d
+# ZJIT: Reject ISEQs with too-large stack_max (#13770) 2025-07-02
+ENV RUBY_REVISION=d5f5a56bf291d2456366bfb824d4413d02465f87
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
