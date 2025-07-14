@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# ZJIT: Reject ISEQs with too-large stack_max (#13770) 2025-07-02
-ENV RUBY_REVISION=d5f5a56bf291d2456366bfb824d4413d02465f87
+# ZJIT: Make debug info more detailed 2025-07-14
+ENV RUBY_REVISION=a6d483971a69436f5055cc9b5519256ef2630eb9
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
