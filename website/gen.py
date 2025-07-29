@@ -63,6 +63,27 @@ def removesuffix(text, suffix):
     return text
 
 
+def find_graphs(stdout):
+    graphs = {}
+    current_graph = []
+    state = "searching"
+    result_stdout = []
+    for line in stdout.splitlines():
+        if state == "searching":
+            if line.startswith("digraph G {"):
+                state = "reading"
+                current_graph = [line]
+                name = line.split(" # ")[1]
+            else:
+                result_stdout.append(line)
+        elif state == "reading":
+            current_graph.append(line)
+            if line.startswith("}"):
+                graphs[name] = "\n".join(current_graph)
+                state = "searching"
+    return graphs, "\n".join(result_stdout)
+
+
 def make_explorer_class(process_args, prod_hostname=None):
     runtime = args.runtime
     # args.host is for listen address, whereas prod_hostname is for CSP header.
@@ -163,10 +184,11 @@ def make_explorer_class(process_args, prod_hostname=None):
             self._begin_response(200, "text/html")
             self.end_headers()
             user_code = self.params["code"][0]
-            self.wfile.write(b"<pre>")
             jit_options = self._render_options(
                 "--zjit",
                 "--zjit-dump-hir",
+                # TODO(max): Ship and deploy
+                # "--zjit-dump-hir-graphviz",
                 # "--zjit-dump-lir",
                 # "--zjit-dump-disasm",
                 "--zjit-debug",
@@ -177,7 +199,7 @@ def make_explorer_class(process_args, prod_hostname=None):
             with tempfile.TemporaryDirectory() as tmp:
                 main_code_path = os.path.join(tmp, "main.rb")
                 cmd = [*timeout, runtime, *jit_options, main_code_path]
-                self.wfile.write(b"$ " + " ".join(shlex.quote(c) for c in cmd).encode("utf-8") + b"\n")
+                pretty_command = b"$ " + " ".join(shlex.quote(c) for c in cmd).encode("utf-8") + b"\n"
                 with open(main_code_path, "w+") as f:
                     f.write(user_code)
                 try:
@@ -187,6 +209,8 @@ def make_explorer_class(process_args, prod_hostname=None):
                         cwd=tmp,
                     )
                 except subprocess.CalledProcessError as e:
+                    self.wfile.write(b"<pre>")
+                    self.wfile.write(pretty_command)
                     if e.returncode == -9:
                         self.wfile.write(b"Command timed out")
                         return
@@ -198,7 +222,35 @@ def make_explorer_class(process_args, prod_hostname=None):
                     self.wfile.write(e.stderr.encode("utf-8"))
                     self.wfile.write(b"</pre>")
                     return
-            self.wfile.write(result.stdout.encode("utf-8"))
+            graphs, stdout = find_graphs(result.stdout)
+# TODO(max): Ship and deploy
+#             self.wfile.write(b"""
+# <label for="graphviz_functions">Choose a function:</label>
+# <select id="graphviz_functions">""")
+#             for name, graph in graphs.items():
+#                 self.wfile.write(f"""<option value="{name}">{name}</option>""".encode("utf-8"))
+#             self.wfile.write(b"""</select>""")
+#             for name, graph in graphs.items():
+#                 self.wfile.write(f"""<script type="not-js" id="{name}">{graph}</script>""".encode("utf-8"))
+#             self.wfile.write(b"""
+# <div id="graphviz_result"></div>
+# <script type="module">
+#   import * as Viz from "./vendor/viz.js";
+#   const viz = await Viz.instance();
+#   graphviz_functions.onchange = function () {
+#     const function_name = graphviz_functions.value;
+#     const value = document.getElementById(function_name)?.textContent;
+#     if (value) {
+#       graphviz_result.innerHTML = '';
+#       console.log("Rendering graph for", value);
+#       graphviz_result.appendChild(viz.renderSVGElement(value))
+#     }
+#   };
+# </script>
+# """)
+            self.wfile.write(b"<pre>")
+            self.wfile.write(pretty_command)
+            self.wfile.write(stdout.encode("utf-8"))
             self.wfile.write(b"</pre>")
 
         routes = {
