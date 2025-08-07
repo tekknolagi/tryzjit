@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# ZJIT: Make debug info more detailed 2025-07-14
-ENV RUBY_REVISION=a6d483971a69436f5055cc9b5519256ef2630eb9
+# Make Random write-barrier protected 2025-08-07
+ENV RUBY_REVISION=24d0b458cd6ccde1e052c1db15af120def349693
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
