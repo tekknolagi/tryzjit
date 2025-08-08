@@ -187,8 +187,7 @@ def make_explorer_class(process_args, prod_hostname=None):
             jit_options = self._render_options(
                 "--zjit",
                 "--zjit-dump-hir",
-                # TODO(max): Ship and deploy
-                # "--zjit-dump-hir-graphviz",
+                "--zjit-dump-hir-graphviz",
                 # "--zjit-dump-lir",
                 # "--zjit-dump-disasm",
                 "--zjit-debug",
@@ -223,31 +222,30 @@ def make_explorer_class(process_args, prod_hostname=None):
                     self.wfile.write(b"</pre>")
                     return
             graphs, stdout = find_graphs(result.stdout)
-# TODO(max): Ship and deploy
-#             self.wfile.write(b"""
-# <label for="graphviz_functions">Choose a function:</label>
-# <select id="graphviz_functions">""")
-#             for name, graph in graphs.items():
-#                 self.wfile.write(f"""<option value="{name}">{name}</option>""".encode("utf-8"))
-#             self.wfile.write(b"""</select>""")
-#             for name, graph in graphs.items():
-#                 self.wfile.write(f"""<script type="not-js" id="{name}">{graph}</script>""".encode("utf-8"))
-#             self.wfile.write(b"""
-# <div id="graphviz_result"></div>
-# <script type="module">
-#   import * as Viz from "./vendor/viz.js";
-#   const viz = await Viz.instance();
-#   graphviz_functions.onchange = function () {
-#     const function_name = graphviz_functions.value;
-#     const value = document.getElementById(function_name)?.textContent;
-#     if (value) {
-#       graphviz_result.innerHTML = '';
-#       console.log("Rendering graph for", value);
-#       graphviz_result.appendChild(viz.renderSVGElement(value))
-#     }
-#   };
-# </script>
-# """)
+            self.wfile.write(b"""
+<label for="graphviz_functions">Choose a function:</label>
+<select id="graphviz_functions">""")
+            for name, graph in graphs.items():
+                self.wfile.write(f"""<option value="{name}">{name}</option>""".encode("utf-8"))
+            self.wfile.write(b"""</select>""")
+            for name, graph in graphs.items():
+                self.wfile.write(f"""<script type="not-js" id="{name}">{graph}</script>""".encode("utf-8"))
+            self.wfile.write(b"""
+<div id="graphviz_result"></div>
+<script type="module">
+  import * as Viz from "./vendor/viz.js";
+  const viz = await Viz.instance();
+  graphviz_functions.onchange = function () {
+    const function_name = graphviz_functions.value;
+    const value = document.getElementById(function_name)?.textContent;
+    if (value) {
+      graphviz_result.innerHTML = '';
+      console.log("Rendering graph for", value);
+      graphviz_result.appendChild(viz.renderSVGElement(value))
+    }
+  };
+</script>
+""")
             self.wfile.write(b"<pre>")
             self.wfile.write(pretty_command)
             self.wfile.write(stdout.encode("utf-8"))
