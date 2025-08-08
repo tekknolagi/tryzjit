@@ -244,6 +244,7 @@ def make_explorer_class(process_args, prod_hostname=None):
       graphviz_result.appendChild(viz.renderSVGElement(value))
     }
   };
+  graphviz_functions.onchange();
 </script>
 """)
             self.wfile.write(b"<pre>")
