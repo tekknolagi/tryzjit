@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# Make Random write-barrier protected 2025-08-07
-ENV RUBY_REVISION=24d0b458cd6ccde1e052c1db15af120def349693
+# ZJIT: Add a graphviz dumper for HIR 2025-08-08
+ENV RUBY_REVISION=8eb26ebf918e6ffbb9d8f3e586ed1749b6c51f15
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
