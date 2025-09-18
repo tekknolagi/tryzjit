@@ -187,7 +187,7 @@ def make_explorer_class(process_args, prod_hostname=None):
             jit_options = self._render_options(
                 "--zjit",
                 "--zjit-dump-hir",
-                "--zjit-dump-hir-graphviz",
+                ("--zjit-dump-hir-graphviz", "/dev/stdout"),
                 # "--zjit-dump-lir",
                 # "--zjit-dump-disasm",
                 "--zjit-debug",
