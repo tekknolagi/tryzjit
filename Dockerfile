@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# ZJIT: Add a graphviz dumper for HIR 2025-08-08
-ENV RUBY_REVISION=8eb26ebf918e6ffbb9d8f3e586ed1749b6c51f15
+# [ruby/erb] [DOC] Fix the description of #new_toplevel 2025-09-17
+ENV RUBY_REVISION=f37d42fc7b9e66463caa17506cfd47f8b4e47983
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
