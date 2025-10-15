@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# [ruby/erb] [DOC] Fix the description of #new_toplevel 2025-09-17
-ENV RUBY_REVISION=f37d42fc7b9e66463caa17506cfd47f8b4e47983
+# Fix assert_equal order in test_namespace.rb 2025-10-15
+ENV RUBY_REVISION=5a9fac6939af7be2991a5fe16df5fcba8f24eab9
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
