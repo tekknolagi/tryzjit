@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# Compatibility with test-unit-ruby-core 2025-10-17
-ENV RUBY_REVISION=837947ac7fb52c0492eb148e3cb17946aefaadc4
+# [DOC] Update refinements.rdoc 2025-19-29
+ENV RUBY_REVISION=7bc72469564b8f55b90aa9c0586854c14337aa75
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
