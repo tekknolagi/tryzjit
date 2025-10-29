@@ -74,12 +74,16 @@
           return result;
         }
         const default_code = `\
-def add(left, right)
-  left + right
+def one
+  1
 end
 
-def test()
-  1 + add(2, 3)
+def two
+  2
+end
+
+def test
+  one + two
 end
 
 30.times do
