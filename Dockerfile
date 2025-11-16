@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# ZJIT: Use LoadField for specialized GetIvar 2025-10-30T22:31:14Z
-ENV RUBY_REVISION=f8b4feb7f0de477bebb40966f80dcd9aabd3b06a
+# Remove dead IBF_OBJECT_INTERNAL 2025-11-15T21:02:15Z
+ENV RUBY_REVISION=bacd35626c500db1f27136b57363685e4da74d9b
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
