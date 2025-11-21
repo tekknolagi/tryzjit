@@ -6,6 +6,7 @@ RUN apt install -y \
     autoconf \
     rustup \
     ruby \
+    libatomic1 \
     make
 RUN adduser --disabled-password user
 USER user
