@@ -13,8 +13,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# Remove dead IBF_OBJECT_INTERNAL 2025-11-15T21:02:15Z
-ENV RUBY_REVISION=bacd35626c500db1f27136b57363685e4da74d9b
+# ZJIT: Add tests for Kernel#kind_of? 2025-11-21T17:21:57Z
+ENV RUBY_REVISION=1959fcacb357ec548ed8a000c6dc6e5f39a3fb55
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
