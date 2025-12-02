@@ -1,36 +1,40 @@
-FROM ubuntu:24.04 as builder
-RUN apt -y update
-RUN apt install -y \
-    clang \
-    git \
-    autoconf \
-    rustup \
-    ruby \
-    libatomic1 \
-    make
-RUN adduser --disabled-password user
+FROM ubuntu:24.04 AS builder
+RUN apt-get update && apt-get install -y \
+  clang \
+  git \
+  autoconf \
+  rustup \
+  ruby \
+  make \
+  jq \
+  && rm -rf /var/lib/apt/lists/* \
+  && adduser --disabled-password user
 USER user
-RUN rustup default 1.85
+RUN rustup default stable
 
-FROM builder as build
-WORKDIR /app
-# ZJIT: Add tests for Kernel#kind_of? 2025-11-21T17:21:57Z
-ENV RUBY_REVISION=1959fcacb357ec548ed8a000c6dc6e5f39a3fb55
-RUN git init ruby
+# Build Ruby executable
+FROM builder AS ruby-builder
+ARG RUBY_REVISION=master
 WORKDIR /app/ruby
-RUN git remote add origin https://github.com/ruby/ruby.git
-RUN git fetch --depth=1 origin "$RUBY_REVISION"
-RUN git reset --hard FETCH_HEAD
-RUN ./autogen.sh
-RUN ./configure --enable-zjit=dev --disable-yjit
-RUN make -sj $(nproc)
+RUN git clone --depth=1 --branch "$RUBY_REVISION" https://github.com/ruby/ruby.git . \
+  && ./autogen.sh \
+  && ./configure --enable-zjit=dev --disable-yjit \
+  && make -sj "$(nproc)"
 
-FROM ubuntu:24.04 as server_builder
-RUN apt -y update
-RUN apt install -y python3
+# Build Rust server
+FROM builder AS rust-builder
+WORKDIR /app
+COPY --chown=user:user Cargo.toml Cargo.lock ./
+COPY --chown=user:user src ./src
+RUN cargo build --release
 
-FROM server_builder as explorer
-COPY --from=build /app/ruby/ruby /usr/local/bin/ruby
-COPY website/ /app/website
-WORKDIR /app/website
-ENTRYPOINT python3 gen.py explorer --runtime /usr/local/bin/ruby --ipv6
+# Final image
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY --from=ruby-builder /app/ruby/miniruby /app/ruby
+COPY --from=rust-builder /app/target/release/tryzjit-v2 /app/tryzjit-v2
+COPY static ./static
+EXPOSE 3000
+CMD ["/app/tryzjit-v2"]
