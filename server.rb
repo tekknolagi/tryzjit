@@ -60,5 +60,5 @@ server.mount('/execute', TryZJITServer)
 
 trap('INT') { server.shutdown }
 
-puts "Listening on http://127.0.0.1:3000"
+puts "Listening on http://127.0.0.1:3150"
 server.start

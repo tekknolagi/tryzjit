@@ -49,22 +49,18 @@ async function executeCode() {
 
         console.log('Execution result:', result);
 
-        if (result === null) {
-          alert("nooo");
+        if (result.error) {
+            alert(`Error: ${result.error}`);
+            return null;
         }
 
-        // Send the iongraph JSON to the iframe
-        const iframe = document.querySelector('.right-panel iframe');
-        if (iframe && iframe.contentWindow && result.msg) {
-            try {
-                const ionjson = JSON.parse(result.msg);
-                iframe.contentWindow.postMessage({
-                    type: 'iongraph-data',
-                    data: ionjson
-                }, '*');
-            } catch (parseError) {
-                console.error('Error parsing iongraph JSON:', parseError);
-            }
+        const iongraphRoot = document.getElementById('iongraph-root');
+        if (iongraphRoot && result.functions && result.functions.length > 0) {
+            iongraphRoot.innerHTML = '';
+
+            iongraph.renderStandaloneUI(iongraphRoot, result);
+        } else if (!result.functions || result.functions.length === 0) {
+            alert("No functions compiled to iongraph");
         }
 
         return result;
