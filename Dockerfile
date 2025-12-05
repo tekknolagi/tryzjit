@@ -22,7 +22,7 @@ RUN git remote add origin https://github.com/ruby/ruby.git
 RUN git fetch --depth=1 origin "$RUBY_REVISION"
 RUN git reset --hard FETCH_HEAD
 RUN ./autogen.sh
-RUN ./configure --enable-zjit=dev --disable-yjit --disable-install-doc
+RUN ./configure --enable-zjit=dev --disable-yjit --prefix=/usr/local --disable-install-doc
 RUN make -sj $(nproc)
 
 FROM ubuntu:24.04 as explorer
