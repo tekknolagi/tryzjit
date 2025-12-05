@@ -30,4 +30,5 @@ COPY --from=build /app/ruby/ruby /usr/local/bin/ruby
 COPY static/ /app/static
 COPY server.rb /app/server.rb
 WORKDIR /app
+EXPOSE 8081
 ENTRYPOINT ["/usr/local/bin/ruby", "server.rb"]
