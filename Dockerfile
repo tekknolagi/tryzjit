@@ -34,4 +34,4 @@ COPY static/ /app/static
 COPY server.rb /app/server.rb
 WORKDIR /app
 EXPOSE 8081
-ENTRYPOINT ["ruby", "server.rb"]
+ENTRYPOINT ["/usr/local/bin/ruby", "server.rb"]
