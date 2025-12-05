@@ -30,30 +30,29 @@ def handle_execute(body)
   if $?.exitstatus != 0
     raise "Child process exited with a non-zero status: #{$?.exitstatus}"
   end
-  raise Dir["/tmp/*"].to_s
-  
+  # raise Dir["/tmp/*"].to_s
+
 
   output_dir = "/tmp/zjit-iongraph-#{pid}"
   functions = []
 
-  if Dir.exist?(output_dir)
-    Dir.foreach(output_dir) do |entry|
-      next if entry == '.' || entry == '..'
-      file_path = File.join(output_dir, entry)
-      functions << File.read(file_path)
-    end
+  Dir.foreach(output_dir) do |entry|
+    next if entry == '.' || entry == '..'
+    file_path = File.join(output_dir, entry)
+    functions << File.read(file_path)
   end
+
   puts "Found #{output_dir} with #{functions.length} function(s)"
 
-  result = {
+  result = JSON.generate({
     functions: functions.map { |f| JSON.parse(f) },
     version: 1
-  }
+  })
 
   puts "Cleaning up #{output_dir}"
   FileUtils.remove_dir(output_dir)
 
-  [200, { 'Content-Type' => 'application/json' }, JSON.generate(result)]
+  [200, { 'Content-Type' => 'application/json' }, result]
 rescue => e
   [500, { 'Content-Type' => 'application/json' }, JSON.generate({ error: e.message })]
 end
