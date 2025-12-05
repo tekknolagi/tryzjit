@@ -32,4 +32,4 @@ FROM server_builder as explorer
 COPY --from=build /app/ruby/ruby /usr/local/bin/ruby
 COPY static/ /app/static
 WORKDIR /app
-ENTRYPOINT ruby server.ruby
+ENTRYPOINT ruby server.rb
