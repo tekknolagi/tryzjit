@@ -52,7 +52,7 @@ class TryZJITServer < WEBrick::HTTPServlet::AbstractServlet
 end
 
 server = WEBrick::HTTPServer.new(
-  Port: 3150,
+  Port: 8081,
   DocumentRoot: File.join(__dir__, 'static')
 )
 
@@ -60,5 +60,5 @@ server.mount('/execute', TryZJITServer)
 
 trap('INT') { server.shutdown }
 
-puts "Listening on http://127.0.0.1:3150"
+puts "Listening on http://127.0.0.1:8081"
 server.start
