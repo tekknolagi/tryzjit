@@ -30,6 +30,8 @@ def handle_execute(body)
   if $?.exitstatus != 0
     raise "Child process exited with a non-zero status: #{$?.exitstatus}"
   end
+  raise Dir["/tmp/*"].to_s
+  
 
   output_dir = "/tmp/zjit-iongraph-#{pid}"
   functions = []
