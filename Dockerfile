@@ -25,12 +25,9 @@ RUN ./autogen.sh
 RUN ./configure --enable-zjit=dev --disable-yjit
 RUN make -sj $(nproc)
 
-FROM ubuntu:24.04 as server_builder
-RUN apt -y update
-RUN apt install -y python3
-
-FROM server_builder as explorer
+FROM ubuntu:24.04 as explorer
 COPY --from=build /app/ruby/ruby /usr/local/bin/ruby
-COPY website/ /app/website
-WORKDIR /app/website
-ENTRYPOINT python3 gen.py explorer --runtime /usr/local/bin/ruby --ipv6
+COPY static/ /app/static
+COPY server.rb /app/server.rb
+WORKDIR /app
+ENTRYPOINT ["/usr/local/bin/ruby", "server.rb"]
