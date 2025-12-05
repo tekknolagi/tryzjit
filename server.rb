@@ -13,7 +13,9 @@ def handle_execute(body)
   file_name = "#{timestamp}_#{Process.pid}.rb"
   file_path = File.join(Dir.tmpdir, file_name)
 
-  File.write(file_path, body)
+  File.open(file_path, "w") do |file|
+    file.puts(body)
+  end
 
   puts "Running new code submitted on #{timestamp}"
   pid = spawn(
