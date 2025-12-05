@@ -14,7 +14,7 @@ function highlighter(value) {
 }
 
 const plugins = [
-  history(), // suuport ctrl+z ctrl+shift+z when use plugins. should be first
+  history(), // support ctrl+z ctrl+shift+z
   tab(), // indent with two space
   cutLine(), // cmd + x for cutting line
   preserveIndent() // preserve last line indent
@@ -49,18 +49,38 @@ async function executeCode() {
 
         console.log('Execution result:', result);
 
+        const iongraphRoot = document.getElementById('iongraph-root');
+
         if (result.error) {
-            alert(`Error: ${result.error}`);
+            if (result.diagnostics) {
+                iongraphRoot.innerHTML = `
+                    <div style="padding: 20px; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; margin: 20px; font-family: monospace; white-space: pre-wrap; overflow: auto; height: calc(100% - 40px);">
+                        <strong>Compilation Error:</strong>\n\n${result.diagnostics}
+                    </div>
+                `;
+            } else {
+                alert(`Error: ${result.error}`);
+            }
             return null;
         }
 
-        const iongraphRoot = document.getElementById('iongraph-root');
         if (iongraphRoot && result.functions && result.functions.length > 0) {
+            // Force a complete re-mount by creating a new container
             iongraphRoot.innerHTML = '';
+            const newContainer = document.createElement('div');
+            newContainer.style.width = '100%';
+            newContainer.style.height = '100%';
+            newContainer.style.position = 'absolute';
+            iongraphRoot.appendChild(newContainer);
 
-            iongraph.renderStandaloneUI(iongraphRoot, result);
+            iongraph.renderStandaloneUI(newContainer, result);
         } else if (!result.functions || result.functions.length === 0) {
-            alert("No functions compiled to iongraph");
+            iongraphRoot.innerHTML = `
+                <div style="padding: 20px; color: #856404; background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; margin: 20px;">
+                    <strong>No functions compiled to iongraph</strong><br><br>
+                    The code executed successfully but didn't generate any JIT compilations. Try adding a function that gets called multiple times.
+                </div>
+            `;
         }
 
         return result;
