@@ -25,6 +25,10 @@ def handle_execute(body)
   )
   Process.wait(pid)
 
+  if $?.exitstatus != 0
+    raise "Child process exited with a non-zero status: #{$?.exitstatus}"
+  end
+
   output_dir = "/tmp/zjit-iongraph-#{pid}"
   functions = []
 
