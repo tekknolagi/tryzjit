@@ -4,4 +4,3 @@
 *.md
 .DS_Store
 /target
-*.toml
