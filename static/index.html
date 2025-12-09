@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="default.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            padding: 0 12px;
+        }
+
+        .left-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .divider {
+            width: 5px;
+            background: #ccc;
+            cursor: col-resize;
+            user-select: none;
+        }
+
+        .divider:hover {
+            background: #999;
+        }
+
+        .right-panel {
+            flex: 1;
+            background: #f5f5f5;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            position: relative;
+        }
+
+        #iongraph-root {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #iongraph-root > * {
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        #editor {
+            flex: 1;
+            overflow: auto;
+            padding: 12px;
+            min-height: 0;
+        }
+
+        #execute-btn {
+            padding: 12px;
+            margin: 12px;
+
+            font-size: 14px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="iongraph.css">
+    <script src="iongraph.js"></script>
+    <script type="module" src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel" id="left-panel">
+            <div id="editor"></div>
+            <button id="execute-btn">Compile to Iongraph!</button>
+        </div>
+        <div class="divider" id="divider"></div>
+        <div class="right-panel">
+            <div id="iongraph-root"></div>
+        </div>
+    </div>
+</body>
+</html>
