@@ -1,0 +1,7 @@
+.git
+.gitignore
+.github
+*.md
+.DS_Store
+/target
+*.toml
