@@ -14,12 +14,19 @@ def handle_execute(body)
   file_name = "#{timestamp}_#{Process.pid}.rb"
   file_path = File.join(Dir.tmpdir, file_name)
 
+  # Strip leading and trailing whitespace.
+  body = body.strip
+
+  if body.empty?
+    raise "Empty request body found."
+  end
+
   File.open(file_path, "w") do |file|
     file.puts(body)
   end
 
   puts "Running new code submitted on #{timestamp}"
-  stdout_and_stderr_s, status = Open3.capture2e(
+  _, status = Open3.capture2e(
     'ruby',
     '--zjit',
     '--zjit-call-threshold=2',
@@ -28,19 +35,16 @@ def handle_execute(body)
   )
 
   output_dir = "/tmp/zjit-iongraph-#{status.pid}"
-  functions = []
+  functions = Dir.exit?(output_dir) ? Dir.glob("#{output_dir}/*").map {|f| JSON.parse(File.read(f)) } : []
 
-  if Dir.exist?(output_dir)
-    Dir.foreach(output_dir) do |entry|
-      next if entry == '.' || entry == '..'
-      file_path = File.join(output_dir, entry)
-      functions << File.read(file_path)
-    end
+  if functions.empty?
+    raise "No functions generated."
   end
+
   puts "Found #{output_dir} with #{functions.length} function(s)"
 
   result = {
-    functions: functions.map { |f| JSON.parse(f) },
+    functions: functions,
     version: 1
   }
 
