@@ -21,6 +21,9 @@ def handle_execute(body)
 
   puts "Running new code submitted on #{timestamp}"
   stdout_and_stderr_s, status = Open3.capture2e(
+    'timeout',
+    '--signal=KILL',
+    '5s',
     'ruby',
     '--zjit',
     '--zjit-call-threshold=2',
