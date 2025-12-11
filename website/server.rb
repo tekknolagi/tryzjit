@@ -12,18 +12,14 @@ STATIC_DIR = File.join(__dir__)
 def handle_execute(body)
   timestamp = (Time.now.to_f * 1_000_000_000).to_i
   file_name = "#{timestamp}_#{Process.pid}.rb"
-  file_path = File.join(Dir.tmpdir, file_name)
+  file_path = File.join("/tmp", file_name)
 
   puts "Writing body of request to #{file_path}"
   File.open(file_path, "w") do |file|
     file.puts(body)
   end
 
-  puts "Running new code submitted on #{timestamp}"
   stdout_and_stderr_s, status = Open3.capture2e(
-    'timeout',
-    '--signal=KILL',
-    '5s',
     'ruby',
     '--zjit',
     '--zjit-call-threshold=2',
@@ -31,16 +27,25 @@ def handle_execute(body)
     file_path
   )
 
+  if status.exitstatus != 0
+    puts "Failed compile of #{file_path}, bailing"
+    raise stdout_and_stderr_s
+  end
+
   output_dir = "/tmp/zjit-iongraph-#{status.pid}"
+
+  if !Dir.exist?(output_dir)
+    raise "No output directory found"
+  end
+
   functions = []
 
-  if Dir.exist?(output_dir)
-    Dir.foreach(output_dir) do |entry|
-      next if entry == '.' || entry == '..'
-      file_path = File.join(output_dir, entry)
-      functions << File.read(file_path)
-    end
+  Dir.foreach(output_dir) do |entry|
+    next if entry == '.' || entry == '..'
+    file_path = File.join(output_dir, entry)
+    functions << File.read(file_path)
   end
+
   puts "Found #{output_dir} with #{functions.length} function(s)"
 
   result = {
@@ -48,8 +53,9 @@ def handle_execute(body)
     version: 1
   }
 
-  puts "Cleaning up #{output_dir}"
+  puts "Cleaning up #{output_dir}, #{file_path}"
   FileUtils.rm_rf(output_dir)
+  FileUtils.rm_rf(file_path)
 
   [200, { 'Content-Type' => 'application/json' }, JSON.generate(result)]
 rescue => e
@@ -77,6 +83,8 @@ end
 
 def handle_request(request_line, headers, body)
   method, path, _ = request_line.split(' ')
+
+  path = path.split('?').first
 
   if method == 'POST' && path == '/execute'
     handle_execute(body)
