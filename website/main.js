@@ -1,78 +1,125 @@
 import Yace from "./vendor/yace.min.js";
 import tab from "./vendor/tab.js";
 
-const DEFAULT_TEXT =
-  "# try editing...\n\ndef sum(a, b)\n    a + b\nend\n\nsum(1,2)\nsum(3,4)";
+const DEBOUNCE_TIMEOUT_MS = 500;
+const STORAGE_KEY = "iongraph-saved-code";
+const DEFAULT_TEXT = `def one
+  1
+end
+
+def two
+  2
+end
+
+def test
+  one + two
+end
+
+30.times do
+  test
+end
+`;
+
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
+
+function loadCode() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const codeFromUrl = urlParams.get("code");
+
+  if (codeFromUrl) {
+    try {
+      return atob(codeFromUrl);
+    } catch (e) {
+      console.error("Failed to decode base64 code from URL:", e);
+    }
+  }
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+  return saved !== null ? saved : DEFAULT_TEXT;
+}
+
+function saveShareUrl(code) {
+  const url = new URL(window.location.origin + window.location.pathname);
+  url.searchParams.set("code", btoa(code));
+  document.getElementById("share-url").value = url.toString();
+}
 
 function highlighter(value) {
   return hljs.highlight(value, { language: "ruby" }).value;
 }
 
-const plugins = [
-  tab(), // indent with two space
-];
-
 const editor = new Yace("#editor", {
-  value: DEFAULT_TEXT,
-  styles: {
-    fontSize: "18px",
-  },
+  value: loadCode(),
+  styles: { fontSize: "18px" },
   highlighter,
-  plugins,
+  plugins: [tab()],
   lineNumbers: true,
 });
 
 editor.textarea.spellcheck = false;
 
-// Function to send code to backend
+saveShareUrl(editor.value);
+
+editor.textarea.addEventListener("input", debounce(() => {
+  localStorage.setItem(STORAGE_KEY, editor.value);
+  saveShareUrl(editor.value);
+}, DEBOUNCE_TIMEOUT_MS));
+
+function renderError(iongraphRoot, error) {
+  iongraphRoot.innerHTML = `
+    <div class="compile-fail">
+      <strong>Compilation Error:</strong>\n\n${error}
+    </div>
+  `;
+}
+
+function renderNoFunctions(iongraphRoot) {
+  iongraphRoot.innerHTML = `
+    <div class="no-functions">
+      <strong>No functions compiled to iongraph</strong><br><br>
+      Try adding a function that gets called at least twice.
+    </div>
+  `;
+}
+
+function renderIongraph(iongraphRoot, result) {
+  iongraphRoot.innerHTML = "";
+  const container = document.createElement("div");
+  container.style.width = "100%";
+  container.style.height = "100%";
+  container.style.position = "absolute";
+  iongraphRoot.appendChild(container);
+  iongraph.renderStandaloneUI(container, result);
+}
+
 async function executeCode() {
   const code = editor.value;
 
   try {
     const response = await fetch("/execute", {
       method: "POST",
-      headers: {
-        "Content-Type": "text/plain",
-      },
+      headers: { "Content-Type": "text/plain" },
       body: code,
     });
 
     const result = await response.json();
-
-    console.log("Execution result:", result);
-
     const iongraphRoot = document.getElementById("iongraph-root");
 
     if (result.error) {
-      if (result.diagnostics) {
-        iongraphRoot.innerHTML = `
-                    <div style="padding: 20px; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; margin: 20px; font-family: monospace; white-space: pre-wrap; overflow: auto; height: calc(100% - 40px);">
-                        <strong>Compilation Error:</strong>\n\n${result.diagnostics}
-                    </div>
-                `;
-      } else {
-        alert(`Error: ${result.error}`);
-      }
+      renderError(iongraphRoot, result.error);
       return null;
     }
 
-    if (iongraphRoot && result.functions && result.functions.length > 0) {
-      // Force a complete re-mount by creating a new container
-      iongraphRoot.innerHTML = "";
-      const newContainer = document.createElement("div");
-      newContainer.style.width = "100%";
-      newContainer.style.height = "100%";
-      newContainer.style.position = "absolute";
-      iongraphRoot.appendChild(newContainer);
-
-      iongraph.renderStandaloneUI(newContainer, result);
-    } else if (!result.functions || result.functions.length === 0) {
-      iongraphRoot.innerHTML = `
-                <div style="padding: 20px; color: #856404; background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; margin: 20px;">
-                    <strong>No functions compiled to iongraph</strong><br><br>
-                    The code executed successfully but didn't generate any JIT compilations. Try adding a function that gets called multiple times.
-                </div>
-            `;
+    if (result.functions && result.functions.length > 0) {
+      renderIongraph(iongraphRoot, result);
+    } else {
+      renderNoFunctions(iongraphRoot);
     }
 
     return result;
@@ -82,45 +129,63 @@ async function executeCode() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("execute-btn").addEventListener("click", executeCode);
-
-  const divider = document.getElementById("divider");
+function setupResizableGutter() {
+  const gutter = document.getElementById("gutter");
   const leftPanel = document.getElementById("left-panel");
   const container = document.querySelector(".container");
 
   let isDragging = false;
+  let lastEventType = null;
 
-  divider.addEventListener("mousedown", (e) => {
-    if (e.button !== 0) return; // left mouse only
+  const getClientX = (e) => e.touches ? e.touches[0].clientX : e.clientX;
+
+  const startDrag = (e) => {
+    if (e.type === "mousedown" && lastEventType === "touchstart") return;
+    if (e.button !== undefined && e.button !== 0) return;
+
+    lastEventType = e.type;
     isDragging = true;
     document.body.style.cursor = "col-resize";
     document.body.style.userSelect = "none";
     e.preventDefault();
-  });
+  };
 
-  document.addEventListener("mousemove", (e) => {
+  const drag = (e) => {
     if (!isDragging) return;
+    if (e.type === "mousemove" && lastEventType === "touchstart") return;
 
     const containerRect = container.getBoundingClientRect();
-    const newWidth = e.clientX - containerRect.left;
-
+    const newWidth = getClientX(e) - containerRect.left;
     const minWidth = 200;
     const maxWidth = containerRect.width - 200;
-
     const clampedWidth = Math.max(minWidth, Math.min(newWidth, maxWidth));
 
     leftPanel.style.flex = "0 0 auto";
-    leftPanel.style.width = clampedWidth + "px";
-  });
+    leftPanel.style.width = `${clampedWidth}px`;
+    e.preventDefault();
+  };
 
-  function stopDragging() {
+  const stopDragging = (e) => {
     if (!isDragging) return;
+    if (e.type === "mouseup" && lastEventType === "touchstart") return;
+
     isDragging = false;
     document.body.style.cursor = "";
     document.body.style.userSelect = "";
-  }
+  };
 
+  gutter.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", drag);
   document.addEventListener("mouseup", stopDragging);
   document.addEventListener("mouseleave", stopDragging);
+
+  gutter.addEventListener("touchstart", startDrag, { passive: false });
+  document.addEventListener("touchmove", drag, { passive: false });
+  document.addEventListener("touchend", stopDragging);
+  document.addEventListener("touchcancel", stopDragging);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("execute-btn").addEventListener("click", executeCode);
+  setupResizableGutter();
 });
