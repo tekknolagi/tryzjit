@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# [ruby/prism] Fix wrong error message for lower percent i arrays
-ENV RUBY_REVISION=d5c7cf0a1a1d2a72421b9a166e19442f89b99868
+# [ruby/psych] Check that Data members match exactly 952008c898 2025-12-15T22:48:40Z
+ENV RUBY_REVISION=abefd3e8ff1853800d4df5b28388191b51d9ec37
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
