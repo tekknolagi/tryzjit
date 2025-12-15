@@ -22,15 +22,17 @@ RUN git remote add origin https://github.com/ruby/ruby.git
 RUN git fetch --depth=1 origin "$RUBY_REVISION"
 RUN git reset --hard FETCH_HEAD
 RUN ./autogen.sh
-RUN ./configure --enable-zjit=dev --disable-yjit
+RUN ./configure --prefix=/usr/local --enable-zjit=dev --disable-yjit --disable-install-doc
 RUN make -sj $(nproc)
+USER root
+RUN make install
+USER user
 
 FROM ubuntu:24.04 as server_builder
-RUN apt -y update
-RUN apt install -y python3
 
 FROM server_builder as explorer
-COPY --from=build /app/ruby/ruby /usr/local/bin/ruby
+COPY --from=build /usr/local /usr/local
 COPY website/ /app/website
-WORKDIR /app/website
-ENTRYPOINT python3 gen.py explorer --runtime /usr/local/bin/ruby --ipv6
+WORKDIR /app
+EXPOSE 8081
+ENTRYPOINT ["ruby", "website/server.rb"]
