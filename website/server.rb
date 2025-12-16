@@ -48,7 +48,7 @@ def handle_execute(body)
 
   functions.map! { |f| JSON.parse(f) }
   functions.sort_by! do |func|
-    func.dig('name')&.downcase&.include?('test') ? 0 : 1
+    func.dig('name')&.start_with?('test') ? 0 : 1
   end
 
   puts "Found #{output_dir} with #{functions.length} function(s)"
