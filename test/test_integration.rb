@@ -23,8 +23,8 @@ RUBY
 class TestIntegration < Minitest::Test
   def setup
     @server_pid = spawn('ruby', 'website/server.rb', out: '/dev/null', err: '/dev/null')
-    # Experimentally, 100 milliseconds seems to be enough to spin up
-    sleep 0.1
+    # Experimentally, 200 milliseconds seems to be enough to spin up
+    sleep 0.2
   end
 
   def teardown
