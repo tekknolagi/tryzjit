@@ -11,10 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Build Docker image
-        run: docker build -t tryzjit:test --target build .
-
-      - name: Run integration tests
-        run: docker run --rm -v $(pwd):/app -w /app tryzjit:test ruby test/test_integration.rb
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 'head'
+      - run: ruby test/test_integration.rb
