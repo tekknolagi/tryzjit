@@ -46,8 +46,8 @@ def handle_execute(body)
     functions << File.read(file_path)
   end
 
-  functions = functions.map { |f| JSON.parse(f) }
-  functions = functions.sort_by do |func|
+  functions.map! { |f| JSON.parse(f) }
+  functions.sort_by! do |func|
     func.dig('name')&.downcase&.include?('test') ? 0 : 1
   end
 
