@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+input {
+    min-width: 300px;
+    margin: 15px 0;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
 body,
 html {
     height: 100%;
