@@ -88,16 +88,6 @@ function renderNoFunctions(iongraphRoot) {
   `;
 }
 
-function renderIongraph(iongraphRoot, result) {
-  iongraphRoot.innerHTML = "";
-  const container = document.createElement("div");
-  container.style.width = "100%";
-  container.style.height = "100%";
-  container.style.position = "absolute";
-  iongraphRoot.appendChild(container);
-  iongraph.renderStandaloneUI(container, result);
-}
-
 async function executeCode() {
   const code = editor.value;
 
@@ -117,7 +107,7 @@ async function executeCode() {
     }
 
     if (result.functions && result.functions.length > 0) {
-      renderIongraph(iongraphRoot, result);
+      ui.setIonJSON(result);
     } else {
       renderNoFunctions(iongraphRoot);
     }

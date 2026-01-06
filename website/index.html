@@ -22,8 +22,14 @@
         </div>
         <div class="gutter" id="gutter"></div>
         <div class="right-panel">
-            <div id="iongraph-root"></div>
         </div>
     </div>
+
+    <script>
+      const rightPanel = document.querySelector('.right-panel');
+      const ui = new iongraph.StandaloneUI();
+      rightPanel.appendChild(ui.root);
+      ui.setIonJSON(window.__exportedIonJSON);
+    </script>
 </body>
 </html>
