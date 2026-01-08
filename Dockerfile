@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# [ruby/psych] Check that Data members match exactly 952008c898 2025-12-15T22:48:40Z
-ENV RUBY_REVISION=abefd3e8ff1853800d4df5b28388191b51d9ec37
+# [ruby/prism] Decouple ripper translator from ripper library 2026-01-08T18:35:26Z
+ENV RUBY_REVISION=16863f2ec1c8cefd852965e58acfcfd61b0194b9
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
