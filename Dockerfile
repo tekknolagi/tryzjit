@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# [ruby/prism] Decouple ripper translator from ripper library 2026-01-08T18:35:26Z
-ENV RUBY_REVISION=16863f2ec1c8cefd852965e58acfcfd61b0194b9
+# [DOC] zjit: small typo fix 2026-01-13T15:36:15Z
+ENV RUBY_REVISION=9db0a8c7db52856b1b048350360f262e8acd8c64
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
