@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# [DOC] zjit: small typo fix 2026-01-13T15:36:15Z
-ENV RUBY_REVISION=9db0a8c7db52856b1b048350360f262e8acd8c64
+# [ruby/prism] Add `Ripper.tokenize` to translation layer 2026-01-16T12:07:41Z
+ENV RUBY_REVISION=074a23ab77a94a5388958c573ab33d5ea5a46ecc
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
