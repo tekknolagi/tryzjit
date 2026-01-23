@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# [ruby/prism] Add `Ripper.tokenize` to translation layer 2026-01-16T12:07:41Z
-ENV RUBY_REVISION=074a23ab77a94a5388958c573ab33d5ea5a46ecc
+# Add early type validation for ObjectSpace.memsize_of_all klass argument 2026-01-23T02:00:37Z
+ENV RUBY_REVISION=6ef0eb29c6579db58e2cf3407b41d58c687ee742
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
