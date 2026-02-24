@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Remove redundant snapshot for opt_getconstant_path (#16229) 2026-02-23T23:58:04Z
-ENV RUBY_REVISION=f3ee4bd0abe2f72bf804a9f564ab763fd5a59d48
+# REV: Avoid and simplify rb_alloc_tmp_buffer_with_count 2026-02-24T17:39:35Z
+ENV RUBY_REVISION=4b4da98832a6eaa4e9e6384325ca2a0040b13961
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
