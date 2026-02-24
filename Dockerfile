@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# Add early type validation for ObjectSpace.memsize_of_all klass argument 2026-01-23T02:00:37Z
-ENV RUBY_REVISION=6ef0eb29c6579db58e2cf3407b41d58c687ee742
+# ZJIT: Remove redundant snapshot for opt_getconstant_path (#16229) 2026-02-23T23:58:04Z
+ENV RUBY_REVISION=f3ee4bd0abe2f72bf804a9f564ab763fd5a59d48
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
