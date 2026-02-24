@@ -14,7 +14,7 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# ZJIT: Remove redundant snapshot for opt_getconstant_path (#16229) 2026-02-23T23:58:04Z
+# REV: ZJIT: Remove redundant snapshot for opt_getconstant_path (#16229) 2026-02-23T23:58:04Z
 ENV RUBY_REVISION=f3ee4bd0abe2f72bf804a9f564ab763fd5a59d48
 RUN git init ruby
 WORKDIR /app/ruby

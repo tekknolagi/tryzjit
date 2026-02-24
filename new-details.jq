@@ -9,4 +9,4 @@ def get_latest_commit(o):
     o | .[0]
   end;
 
-get_latest_commit(.) | "# \(.commit.message | first_line(.)) \(.commit.committer.date)\nENV RUBY_REVISION=\(.sha)"
+get_latest_commit(.) | "# REV: \(.commit.message | first_line(.)) \(.commit.committer.date)\nENV RUBY_REVISION=\(.sha)"
