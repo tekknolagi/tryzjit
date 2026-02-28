@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Avoid and simplify rb_alloc_tmp_buffer_with_count 2026-02-24T17:39:35Z
-ENV RUBY_REVISION=4b4da98832a6eaa4e9e6384325ca2a0040b13961
+# REV: win32/configure.bat accept empty prefix 2026-02-27T23:15:58Z
+ENV RUBY_REVISION=8fb5df26103396819a5b2ac6145d31b1599632bc
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
