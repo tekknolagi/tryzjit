@@ -47,8 +47,10 @@ def handle_execute(body)
   end
 
   functions.map! { |f| JSON.parse(f) }
+  # Sort user-defined functions first; builtins and gem functions last
   functions.sort_by! do |func|
-    func.dig('name')&.start_with?('test') ? 0 : 1
+    name = func.dig('name') || ''
+    name.include?(file_name) ? 0 : 1
   end
 
   puts "Found #{output_dir} with #{functions.length} function(s)"
