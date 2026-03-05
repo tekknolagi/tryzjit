@@ -22,7 +22,7 @@ jobs:
         run: |
           git diff --quiet && exit 0
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github@bernsteinbear.com"
           git add Dockerfile
           git commit -m "Update Ruby"
           git push
