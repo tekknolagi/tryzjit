@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: win32/configure.bat accept empty prefix 2026-02-27T23:15:58Z
-ENV RUBY_REVISION=8fb5df26103396819a5b2ac6145d31b1599632bc
+# REV: Refine `Array#pack` `r`/`R` directives 2026-03-05T12:31:35Z
+ENV RUBY_REVISION=67d4396dc98d1fd29d4555ac3ce212368eda76de
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
