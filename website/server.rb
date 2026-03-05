@@ -49,7 +49,7 @@ def handle_execute(body)
   functions.map! { |f| JSON.parse(f) }
   # Sort user-defined functions first; builtins and gem functions last
   functions.sort_by! do |func|
-    name = func.dig('name') || ''
+    name = func['name'] || ''
     name.include?(file_name) ? 0 : 1
   end
 
