@@ -8,7 +8,12 @@ fi
 comment=$(echo "$new_details" | head -1)
 revision=$(echo "$new_details" | tail -1)
 
-sed -i '' "s|^# REV: .*|$comment|" Dockerfile
-sed -i '' "s|^ENV RUBY_REVISION=.*|$revision|" Dockerfile
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  sed -i '' "s|^# REV: .*|$comment|" Dockerfile
+  sed -i '' "s|^ENV RUBY_REVISION=.*|$revision|" Dockerfile
+else
+  sed -i "s|^# REV: .*|$comment|" Dockerfile
+  sed -i "s|^ENV RUBY_REVISION=.*|$revision|" Dockerfile
+fi
 
 echo "$new_details"
