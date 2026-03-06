@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Refine `Array#pack` `r`/`R` directives 2026-03-05T12:31:35Z
-ENV RUBY_REVISION=67d4396dc98d1fd29d4555ac3ce212368eda76de
+# REV: Improve comparison error message. 2026-03-06T05:02:00Z
+ENV RUBY_REVISION=9aca729140424bbf465c11ab8ab53e5cc6602c01
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
