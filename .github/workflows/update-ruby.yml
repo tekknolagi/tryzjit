@@ -20,21 +20,13 @@ jobs:
         run: ./new-details.sh
 
       - name: Commit and push if changed
-        id: push
         run: |
-          if git diff --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
+          git diff --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "github@bernsteinbear.com"
           git add Dockerfile
           git commit -m "Update Ruby"
           git push
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-
-      - name: Trigger deploy
-        if: steps.push.outputs.changed == 'true'
-        run: gh workflow run deploy.yml --ref trunk
+          gh workflow run deploy.yml --ref trunk
         env:
           GH_TOKEN: ${{ github.token }}
