@@ -11,6 +11,7 @@ jobs:
 
     permissions:
       contents: write
+      actions: write
 
     steps:
       - uses: actions/checkout@v4
@@ -26,3 +27,6 @@ jobs:
           git add Dockerfile
           git commit -m "Update Ruby"
           git push
+          gh workflow run deploy.yml --ref trunk
+        env:
+          GH_TOKEN: ${{ github.token }}
