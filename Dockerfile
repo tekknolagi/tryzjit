@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Improve comparison error message. 2026-03-06T05:02:00Z
-ENV RUBY_REVISION=9aca729140424bbf465c11ab8ab53e5cc6602c01
+# REV: [Bug #21945] Correctly handle `and?` and similar 2026-03-07T01:39:46Z
+ENV RUBY_REVISION=55694ad7efc3f8dc6d5c7aefa60ded4c303ed6cf
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
