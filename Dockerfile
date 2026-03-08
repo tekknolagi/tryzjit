@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #21945] Correctly handle `and?` and similar 2026-03-07T01:39:46Z
-ENV RUBY_REVISION=55694ad7efc3f8dc6d5c7aefa60ded4c303ed6cf
+# REV: [DOC] Update bundled gems list at 55df8dc063df1c749dbe07f78158f8 2026-03-07T07:00:25Z
+ENV RUBY_REVISION=66e61d0cffca501f335175c6ca4948d535a0e86d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
