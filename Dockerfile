@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Update bundled gems list at 55df8dc063df1c749dbe07f78158f8 2026-03-07T07:00:25Z
-ENV RUBY_REVISION=66e61d0cffca501f335175c6ca4948d535a0e86d
+# REV: Separate the case `default_seed_bits` is 0 2026-03-09T05:46:16Z
+ENV RUBY_REVISION=bab8120bfde6e65a9b7d4e09695aa2cdce6aa570
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
