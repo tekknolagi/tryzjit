@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Separate the case `default_seed_bits` is 0 2026-03-09T05:46:16Z
-ENV RUBY_REVISION=bab8120bfde6e65a9b7d4e09695aa2cdce6aa570
+# REV: [ruby/rubygems] Prefer system gem path when deps exist 2026-03-10T06:02:20Z
+ENV RUBY_REVISION=afc684c4bc16d0f3a79ee65ce4c9d3794ade21f8
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
