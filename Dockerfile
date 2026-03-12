@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix up depend 2026-03-11T04:58:21Z
-ENV RUBY_REVISION=10cf6f2b69c7ef40a0b815345bea404eee9fee4e
+# REV: [ruby/rubygems] Make SafeYAML.load an alias of safe_load 2026-03-12T03:56:16Z
+ENV RUBY_REVISION=5c81ba21daa80bd14082c3c32b689057c0fd2349
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
