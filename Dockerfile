@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/strscan] Do not use C99 style comment [ci skip] 2026-03-15T05:42:26Z
-ENV RUBY_REVISION=ca23c7c404871abec5acfedf35843387148350d8
+# REV: Bump the github-actions group across 1 directory with 3 updates 2026-03-16T02:49:53Z
+ENV RUBY_REVISION=2fc3013e7a06cb667a0aa31df9e6f6e0f89de4be
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
