@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the github-actions group across 1 directory with 3 updates 2026-03-17T06:11:55Z
-ENV RUBY_REVISION=e2a705e5e53ca2c52eaed6b001448f5d2f4fca22
+# REV: ZJIT: Inline String#!= by negating String#== (#16391) 2026-03-18T04:53:36Z
+ENV RUBY_REVISION=95af086784bfae3f893fd8a9bf6e7d8f99f67302
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
