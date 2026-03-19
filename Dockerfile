@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Inline String#!= by negating String#== (#16391) 2026-03-18T04:53:36Z
-ENV RUBY_REVISION=95af086784bfae3f893fd8a9bf6e7d8f99f67302
+# REV: [ruby/rubygems] Suppress SimpleCov intermediate coverage result messages during test runs 2026-03-19T05:56:43Z
+ENV RUBY_REVISION=b77ecdc74ccc2e33f1a423ce8f3103efca851e35
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
