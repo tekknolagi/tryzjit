@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Suppress SimpleCov intermediate coverage result messages during test runs 2026-03-19T05:56:43Z
-ENV RUBY_REVISION=b77ecdc74ccc2e33f1a423ce8f3103efca851e35
+# REV: Bump github.com/microsoft/vcpkg from master to 2026.03.18 (#16472) 2026-03-20T03:10:19Z
+ENV RUBY_REVISION=8b9635e14102d845362bec8e2ca0c79daa35b383
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
