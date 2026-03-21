@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump github.com/microsoft/vcpkg from master to 2026.03.18 (#16472) 2026-03-20T03:10:19Z
-ENV RUBY_REVISION=8b9635e14102d845362bec8e2ca0c79daa35b383
+# REV: [DOC] Link fixes for extension_ja.rdoc 2026-03-21T01:08:00Z
+ENV RUBY_REVISION=504686d3043d5c69de5abf1408b2ddf7a853a4a7
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
