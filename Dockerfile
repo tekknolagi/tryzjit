@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Fold statically known GuardGreaterEq (#16487) 2026-03-21T15:49:57Z
-ENV RUBY_REVISION=251fd7a11e442c34c1b60908409e5611f69ef858
+# REV: [DOC] Add strscan to doc/.document 2026-03-22T19:22:47Z
+ENV RUBY_REVISION=f8459601271ebbc5e1efb101387da955ed1faabb
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
