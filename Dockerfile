@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Add strscan to doc/.document 2026-03-22T19:22:47Z
-ENV RUBY_REVISION=f8459601271ebbc5e1efb101387da955ed1faabb
+# REV: [Feature #21932] Add `MatchData#get_int` 2026-03-24T04:19:15Z
+ENV RUBY_REVISION=72eb59d0b23522508300896bbbe73716fe82349e
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
