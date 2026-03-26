@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump taiki-e/install-action 2026-03-25T05:41:12Z
-ENV RUBY_REVISION=f045c1a1ea78602d61bcf0bf3a94a684b1e154e4
+# REV: [ruby/json] Generate non-frozen strings on TruffleRuby for consistency 2026-03-26T05:45:17Z
+ENV RUBY_REVISION=4032e6d97e96329484bb69c2709a449de22da64b
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
