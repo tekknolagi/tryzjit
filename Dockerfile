@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Regenerate Cargo.lock with targeted insta update 2026-03-27T04:49:47Z
-ENV RUBY_REVISION=54593b55fedce4a2f00b0b2231ea697388fe7bf1
+# REV: Rename CFP_HAS_JIT_RETURN to CFP_JIT_RETURN 2026-03-27T23:26:12Z
+ENV RUBY_REVISION=634707a7255f132eb486eaf57473925c288ef7bd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
