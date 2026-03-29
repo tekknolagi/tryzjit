@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Rename CFP_HAS_JIT_RETURN to CFP_JIT_RETURN 2026-03-27T23:26:12Z
-ENV RUBY_REVISION=634707a7255f132eb486eaf57473925c288ef7bd
+# REV: Ensure safe handling of `IO::Buffer#hexdump` width. (#16593) 2026-03-29T05:57:51Z
+ENV RUBY_REVISION=f9175a9e5f55400ab536a64764f141564674c7ad
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
