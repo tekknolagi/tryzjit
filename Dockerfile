@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Ensure safe handling of `IO::Buffer#hexdump` width. (#16593) 2026-03-29T05:57:51Z
-ENV RUBY_REVISION=f9175a9e5f55400ab536a64764f141564674c7ad
+# REV: [ruby/rubygems] Restore rb_sys dependency for Rust 2026-03-30T05:34:10Z
+ENV RUBY_REVISION=3379c7efbdc34b7936f322a6bc2de4834c8c65fc
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
