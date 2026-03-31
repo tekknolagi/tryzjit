@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Restore rb_sys dependency for Rust 2026-03-30T05:34:10Z
-ENV RUBY_REVISION=3379c7efbdc34b7936f322a6bc2de4834c8c65fc
+# REV: Ignore files with parse errors in CodeQL analysis 2026-03-31T06:14:58Z
+ENV RUBY_REVISION=a08f54740a7cfde9b318db8ba59a4de2933c4734
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
