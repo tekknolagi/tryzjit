@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Ignore files with parse errors in CodeQL analysis 2026-03-31T06:14:58Z
-ENV RUBY_REVISION=a08f54740a7cfde9b318db8ba59a4de2933c4734
+# REV: pty: Fix missing arguments 2026-04-01T04:20:35Z
+ENV RUBY_REVISION=2477916e3c3d2c91110f4f39dd2b407a8ff45fbd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
