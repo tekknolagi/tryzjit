@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix condition, `0` is truethy in Ruby [ci skip] 2026-04-03T04:08:06Z
-ENV RUBY_REVISION=9ef2153cdfc96626a1b5096d9c31ca23f3395036
+# REV: ZJIT: Add IseqVersion::is_invalidated() method 2026-04-03T22:35:42Z
+ENV RUBY_REVISION=6ab9b22553ac802819aa1643a9ac9575e75d1286
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
