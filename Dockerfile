@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Add IseqVersion::is_invalidated() method 2026-04-03T22:35:42Z
-ENV RUBY_REVISION=6ab9b22553ac802819aa1643a9ac9575e75d1286
+# REV: LeakChecker: skip CLOSE_WAIT sockets 2026-04-04T04:34:02Z
+ENV RUBY_REVISION=3b6245536cf55da9e8bfcdb03c845fe9ef931d7f
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
