@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: LeakChecker: skip CLOSE_WAIT sockets 2026-04-04T04:34:02Z
-ENV RUBY_REVISION=3b6245536cf55da9e8bfcdb03c845fe9ef931d7f
+# REV: Bump taiki-e/install-action 2026-04-06T02:30:36Z
+ENV RUBY_REVISION=3ef41a526f383a1bd50bd21dd631da0c50208df2
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
