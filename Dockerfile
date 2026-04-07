@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump taiki-e/install-action 2026-04-06T02:30:36Z
-ENV RUBY_REVISION=3ef41a526f383a1bd50bd21dd631da0c50208df2
+# REV: [ruby/rubygems] Address review feedback on tmp directory path resolution 2026-04-07T05:10:28Z
+ENV RUBY_REVISION=4c659a9817064f81a5e93ceb2030f6ee530e2bf1
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
