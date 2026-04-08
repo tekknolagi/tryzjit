@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Address review feedback on tmp directory path resolution 2026-04-07T05:10:28Z
-ENV RUBY_REVISION=4c659a9817064f81a5e93ceb2030f6ee530e2bf1
+# REV: [Bug #21985] Include the `-` in the negative numbers location 2026-04-08T05:50:30Z
+ENV RUBY_REVISION=24a2ba09af13b7c969733ea9370ad59d2442f4c9
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
