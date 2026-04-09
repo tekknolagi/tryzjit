@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #21985] Include the `-` in the negative numbers location 2026-04-08T05:50:30Z
-ENV RUBY_REVISION=24a2ba09af13b7c969733ea9370ad59d2442f4c9
+# REV: Fix thread leaks 2026-04-09T05:19:02Z
+ENV RUBY_REVISION=c091c186e425b659f7aa88ffeac20a41a27b0582
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
