@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix thread leaks 2026-04-09T05:19:02Z
-ENV RUBY_REVISION=c091c186e425b659f7aa88ffeac20a41a27b0582
+# REV: Bump the github-actions group across 1 directory with 2 updates 2026-04-10T03:02:22Z
+ENV RUBY_REVISION=84412ffa1197e58545c943ee10ba949f42c333f3
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
