@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the github-actions group across 1 directory with 2 updates 2026-04-10T03:02:22Z
-ENV RUBY_REVISION=84412ffa1197e58545c943ee10ba949f42c333f3
+# REV: class.c: rb_class_duplicate_classext also dup content of cvc_tbl 2026-04-11T05:57:07Z
+ENV RUBY_REVISION=c0d86a0103de7130943d54b4a290b76ec7e0c135
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
