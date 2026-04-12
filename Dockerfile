@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: class.c: rb_class_duplicate_classext also dup content of cvc_tbl 2026-04-11T05:57:07Z
-ENV RUBY_REVISION=c0d86a0103de7130943d54b4a290b76ec7e0c135
+# REV: Fixed the error message for `ibf_load_builtin` 2026-04-12T02:47:30Z
+ENV RUBY_REVISION=4affbf79ba624fe6861f955593dd0fe54b0a62a9
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
