@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fixed the error message for `ibf_load_builtin` 2026-04-12T02:47:30Z
-ENV RUBY_REVISION=4affbf79ba624fe6861f955593dd0fe54b0a62a9
+# REV: Bump the github-actions group across 2 directories with 4 updates 2026-04-13T02:32:58Z
+ENV RUBY_REVISION=1ffe16ce6e8f9c45f14e5a72bc4c6edb02222073
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
