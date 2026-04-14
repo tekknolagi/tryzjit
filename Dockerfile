@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the github-actions group across 2 directories with 4 updates 2026-04-13T02:32:58Z
-ENV RUBY_REVISION=1ffe16ce6e8f9c45f14e5a72bc4c6edb02222073
+# REV: [ruby/digest] Fix Digest::SHA1#update with large input 2026-04-14T06:18:11Z
+ENV RUBY_REVISION=4f26d8061a68dc13abd16a6ceb03bdacacffabef
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
