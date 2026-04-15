@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/digest] Fix Digest::SHA1#update with large input 2026-04-14T06:18:11Z
-ENV RUBY_REVISION=4f26d8061a68dc13abd16a6ceb03bdacacffabef
+# REV: [ruby/json] Fix handling out of of range exponent in numbers 2026-04-15T06:21:08Z
+ENV RUBY_REVISION=5b4d95b8d03b17c80f2b54a1e92b74df2bb9f63e
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
