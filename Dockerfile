@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Fix handling out of of range exponent in numbers 2026-04-15T06:21:08Z
-ENV RUBY_REVISION=5b4d95b8d03b17c80f2b54a1e92b74df2bb9f63e
+# REV: [ruby/rubygems] Add commented-out rubygems_mfa_required to bundle gem template 2026-04-16T06:17:59Z
+ENV RUBY_REVISION=8ee25f7397fa8cc6bfdadcbec52021678b7bdd8d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
