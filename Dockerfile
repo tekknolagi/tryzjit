@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Add commented-out rubygems_mfa_required to bundle gem template 2026-04-16T06:17:59Z
-ENV RUBY_REVISION=8ee25f7397fa8cc6bfdadcbec52021678b7bdd8d
+# REV: Bump taiki-e/install-action 2026-04-17T02:24:16Z
+ENV RUBY_REVISION=cf91f2025c7235b4ddffacb0b5b4db281e0feb20
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
