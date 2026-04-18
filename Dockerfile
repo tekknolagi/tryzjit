@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump taiki-e/install-action 2026-04-17T02:24:16Z
-ENV RUBY_REVISION=cf91f2025c7235b4ddffacb0b5b4db281e0feb20
+# REV: Bump yard 2026-04-17T22:48:21Z
+ENV RUBY_REVISION=d6c68b65ee1f0d704b33dac527317f52949b5277
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
