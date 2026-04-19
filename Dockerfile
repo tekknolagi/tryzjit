@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump yard 2026-04-17T22:48:21Z
-ENV RUBY_REVISION=d6c68b65ee1f0d704b33dac527317f52949b5277
+# REV: [ruby/json] Use RB_ENC_CODERANGE to first check the cached coderange before calling rb_enc_str_coderange if the coderange is unknown. 2026-04-19T02:14:12Z
+ENV RUBY_REVISION=8f02f644eb5e021b3138b028b4292617650b614a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
