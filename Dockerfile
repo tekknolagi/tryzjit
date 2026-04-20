@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Use RB_ENC_CODERANGE to first check the cached coderange before calling rb_enc_str_coderange if the coderange is unknown. 2026-04-19T02:14:12Z
-ENV RUBY_REVISION=8f02f644eb5e021b3138b028b4292617650b614a
+# REV: Bump the github-actions group across 1 directory with 2 updates 2026-04-20T02:31:13Z
+ENV RUBY_REVISION=35e7f2c2f4840de027e5ebb6e7a5f9213f4444e4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
