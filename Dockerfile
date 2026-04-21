@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the github-actions group across 1 directory with 2 updates 2026-04-20T02:31:13Z
-ENV RUBY_REVISION=35e7f2c2f4840de027e5ebb6e7a5f9213f4444e4
+# REV: Bump dependabot/fetch-metadata 2026-04-21T02:23:56Z
+ENV RUBY_REVISION=9dd446f18ec6cf3992eac2ce0f4037125c95c0c1
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
