@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump taiki-e/install-action 2026-04-24T02:24:35Z
-ENV RUBY_REVISION=0a1cb0a822b6665b972539da41209569b5d9de6e
+# REV: [DOC] Clarify array methods using `eql?` 2026-04-25T03:59:05Z
+ENV RUBY_REVISION=97c070c244ebd76cbf4d9a5b81dca08f4bda6f05
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
