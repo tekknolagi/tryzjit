@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Clarify array methods using `eql?` 2026-04-25T03:59:05Z
-ENV RUBY_REVISION=97c070c244ebd76cbf4d9a5b81dca08f4bda6f05
+# REV: Add test for compile option support 2026-04-27T05:03:09Z
+ENV RUBY_REVISION=3bec8005967673cf5206585dc0872912288c818d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
