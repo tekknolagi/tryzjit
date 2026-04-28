@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Add test for compile option support 2026-04-27T05:03:09Z
-ENV RUBY_REVISION=3bec8005967673cf5206585dc0872912288c818d
+# REV: Get rid of rb_matchext_struct 2026-04-28T06:21:11Z
+ENV RUBY_REVISION=8d929853d88b5ca4ff72b78b5b539afc1b8b7d71
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
