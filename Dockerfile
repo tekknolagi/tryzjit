@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Add YJIT test for outdated comment 2026-04-29T02:26:55Z
-ENV RUBY_REVISION=3345854fa882f6bd70bbd7853010b43b9c8fe73d
+# REV: [ruby/rubygems] Replace #9506 with a targeted :ruby_repo skip 2026-04-30T03:40:24Z
+ENV RUBY_REVISION=e716c6ee1a9053bdedec65aaa0eca0fc10182e22
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
