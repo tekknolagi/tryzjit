@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Avoid spamming too many deprecations while parsing 2026-05-01T05:05:06Z
-ENV RUBY_REVISION=9b8e5bb85dc4c84fc9a19ffc2c9c5f89c360eab8
+# REV: Add back note about regexp /x comment limitation 2026-05-01T19:25:51Z
+ENV RUBY_REVISION=f2845eab29cf4e52af447a4041b5888c0e582882
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
