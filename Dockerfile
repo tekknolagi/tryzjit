@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: jits: don't assume `attr_index_t` is u16 2026-05-02T16:08:12Z
-ENV RUBY_REVISION=db26919bd033dde6a07d18572c621c6959de300f
+# REV: Update default gems list at 5ce5cc8ee24ad92890507a1b0d0c68 [ci skip] 2026-05-04T04:58:33Z
+ENV RUBY_REVISION=ca4047c50842a6f56096931c0fee1d70294bc829
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
