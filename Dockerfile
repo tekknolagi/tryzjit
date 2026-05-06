@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: gc: Simplify updating the shape after move 2026-05-05T05:19:20Z
-ENV RUBY_REVISION=a984c88029eef5e67ed9427015aeb423beb47697
+# REV: Bump taiki-e/install-action 2026-05-06T02:27:16Z
+ENV RUBY_REVISION=bb21539f119d55e22dafc983e9e6eba249fa4ff5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
