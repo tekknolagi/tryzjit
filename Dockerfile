@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump taiki-e/install-action 2026-05-06T02:27:16Z
-ENV RUBY_REVISION=bb21539f119d55e22dafc983e9e6eba249fa4ff5
+# REV: [ruby/stringio] Cannot read into the underlying string 2026-05-07T05:40:09Z
+ENV RUBY_REVISION=1d2d4ac734ad7c14722cca63f841bcb1faa22800
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
