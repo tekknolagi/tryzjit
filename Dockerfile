@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/stringio] Cannot read into the underlying string 2026-05-07T05:40:09Z
-ENV RUBY_REVISION=1d2d4ac734ad7c14722cca63f841bcb1faa22800
+# REV: Use macros for specific purposes 2026-05-08T04:49:15Z
+ENV RUBY_REVISION=216c49f5d35fc9054188175be2640b97033253b7
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
