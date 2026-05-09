@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Use macros for specific purposes 2026-05-08T04:49:15Z
-ENV RUBY_REVISION=216c49f5d35fc9054188175be2640b97033253b7
+# REV: Set EC in rb_gc_event_hook 2026-05-08T23:33:02Z
+ENV RUBY_REVISION=5faeea873ba4249c685c7f390e939560d736fea8
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
