@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Set EC in rb_gc_event_hook 2026-05-08T23:33:02Z
-ENV RUBY_REVISION=5faeea873ba4249c685c7f390e939560d736fea8
+# REV: [Bug #21881] Separate the master and root box 2026-05-10T00:38:45Z
+ENV RUBY_REVISION=276f0d9b3efbabe46e74510e5e3585924b37772c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
