@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #21881] Separate the master and root box 2026-05-10T00:38:45Z
-ENV RUBY_REVISION=276f0d9b3efbabe46e74510e5e3585924b37772c
+# REV: [Feature #21979] Allow negative offset in unpack 2026-05-11T04:54:09Z
+ENV RUBY_REVISION=eb053e7446607f5e70215bf508499ef6bab3aa4a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
