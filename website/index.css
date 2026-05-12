@@ -58,11 +58,61 @@ html {
     min-height: 0;
 }
 
-#execute-btn {
-    padding: 12px;
-    margin: 12px auto;
-    font-size: 14px;
+.share-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 12px 0;
+}
 
+.share-block label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #555;
+    letter-spacing: 0.02em;
+}
+
+#share-url {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: #333;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+#share-url:focus,
+#share-url:hover {
+    border-color: #888;
+    background: #fff;
+}
+
+#execute-btn {
+    align-self: center;
+    padding: 8px 20px;
+    margin: 12px auto;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    background: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+#execute-btn:hover {
+    background: #333;
+    border-color: #333;
+}
+
+#execute-btn:active {
+    background: #000;
 }
 
 .no-functions {
@@ -120,17 +170,17 @@ html {
     }
 
     .share-block {
-        padding: 8px;
+        padding: 8px 8px 0;
         gap: 6px;
     }
 
     .share-block label {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     #share-url {
-        font-size: 12px;
-        padding: 6px 8px;
+        font-size: 11px;
+        padding: 5px 8px;
     }
 
     #editor {
@@ -139,8 +189,7 @@ html {
 
     #execute-btn {
         margin: 8px auto;
-        width: 150px;
-        height: 40px;
+        padding: 8px 24px;
         font-size: 12px;
     }
 
