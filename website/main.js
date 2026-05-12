@@ -64,6 +64,8 @@ const editor = new Yace("#editor-yace", {
 
 editor.textarea.spellcheck = false;
 
+editor.textarea.addEventListener("keydown", (e) => e.stopPropagation());
+
 saveShareUrl(editor.value);
 
 editor.textarea.addEventListener("input", debounce(() => {
