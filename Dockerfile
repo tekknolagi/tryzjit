@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Feature #21979] Allow negative offset in unpack 2026-05-11T04:54:09Z
-ENV RUBY_REVISION=eb053e7446607f5e70215bf508499ef6bab3aa4a
+# REV: [ruby/json] Add missing write barrier in ParserConfig 2026-05-12T06:25:10Z
+ENV RUBY_REVISION=fb369617736b868e6896426c1135fbe23f34cecd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
