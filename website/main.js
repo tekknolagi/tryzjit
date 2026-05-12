@@ -54,7 +54,7 @@ function highlighter(value) {
   return hljs.highlight(value, { language: "ruby" }).value;
 }
 
-const editor = new Yace("#editor", {
+const editor = new Yace("#editor-yace", {
   value: loadCode(),
   styles: { fontSize: "18px" },
   highlighter,
