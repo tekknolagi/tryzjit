@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Add missing write barrier in ParserConfig 2026-05-12T06:25:10Z
-ENV RUBY_REVISION=fb369617736b868e6896426c1135fbe23f34cecd
+# REV: Bump github.com/microsoft/vcpkg from master to 2026.04.27 2026-05-13T03:59:37Z
+ENV RUBY_REVISION=fc5f23f8d02bd3d685292706973117dfd99c0ebe
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
