@@ -180,4 +180,7 @@ function setupResizableGutter() {
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("execute-btn").addEventListener("click", executeCode);
   setupResizableGutter();
+
+  const shareUrl = document.getElementById("share-url");
+  shareUrl.addEventListener("click", () => shareUrl.select());
 });
