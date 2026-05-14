@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump github.com/microsoft/vcpkg from master to 2026.04.27 2026-05-13T03:59:37Z
-ENV RUBY_REVISION=fc5f23f8d02bd3d685292706973117dfd99c0ebe
+# REV: Remove needless `+` from `MatchData#integer_at` tests 2026-05-14T06:07:32Z
+ENV RUBY_REVISION=801a4e4a64a86077ea3b839c66185abfc3450675
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
