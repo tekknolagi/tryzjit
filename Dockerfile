@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Remove needless `+` from `MatchData#integer_at` tests 2026-05-14T06:07:32Z
-ENV RUBY_REVISION=801a4e4a64a86077ea3b839c66185abfc3450675
+# REV: Drop rbs require in rdoc-srcdir (#16983) 2026-05-15T05:15:40Z
+ENV RUBY_REVISION=4d87d43b01dbb312eb1ff5fbbc6c9f33218d91a2
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
