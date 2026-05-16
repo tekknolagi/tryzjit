@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Drop rbs require in rdoc-srcdir (#16983) 2026-05-15T05:15:40Z
-ENV RUBY_REVISION=4d87d43b01dbb312eb1ff5fbbc6c9f33218d91a2
+# REV: Fix for zizmor 2026-05-16T04:16:52Z
+ENV RUBY_REVISION=3edf47de504f099857fd1e7719713674fcf3b9ee
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
