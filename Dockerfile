@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix for zizmor 2026-05-16T04:16:52Z
-ENV RUBY_REVISION=3edf47de504f099857fd1e7719713674fcf3b9ee
+# REV: windows: Use the default vcpkg root 2026-05-17T03:47:51Z
+ENV RUBY_REVISION=5037a32061cb697e631e117cf20f37ed5f932a19
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
