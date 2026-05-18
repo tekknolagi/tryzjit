@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: windows: Use the default vcpkg root 2026-05-17T03:47:51Z
-ENV RUBY_REVISION=5037a32061cb697e631e117cf20f37ed5f932a19
+# REV: Stop boxing cdhash offsets 2026-05-18T05:58:32Z
+ENV RUBY_REVISION=d036506b15e0fe34a36b00cfd461d409b1fcc97d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
