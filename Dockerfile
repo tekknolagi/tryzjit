@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Stop boxing cdhash offsets 2026-05-18T05:58:32Z
-ENV RUBY_REVISION=d036506b15e0fe34a36b00cfd461d409b1fcc97d
+# REV: [ruby/strscan] [DOC] Doc for StringScanner#scan_integer 2026-05-19T02:42:15Z
+ENV RUBY_REVISION=37fe088e0e24667381b7ca411eef3e95c1476ed3
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
