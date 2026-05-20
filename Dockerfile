@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/strscan] [DOC] Doc for StringScanner#scan_integer 2026-05-19T02:42:15Z
-ENV RUBY_REVISION=37fe088e0e24667381b7ca411eef3e95c1476ed3
+# REV: Inline tarball-windows modern matrix and drop the legacy mode 2026-05-20T06:24:18Z
+ENV RUBY_REVISION=4388dead628cef7dcc12ea3e7a48fb33ed58ee37
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
