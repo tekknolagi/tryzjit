@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Inline tarball-windows modern matrix and drop the legacy mode 2026-05-20T06:24:18Z
-ENV RUBY_REVISION=4388dead628cef7dcc12ea3e7a48fb33ed58ee37
+# REV: Exclude the extensions for tests when cross-compiling 2026-05-21T05:27:10Z
+ENV RUBY_REVISION=5de4b1188f3355bb09123a064e19d30ca9a9f247
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
