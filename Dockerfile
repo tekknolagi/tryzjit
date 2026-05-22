@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Exclude the extensions for tests when cross-compiling 2026-05-21T05:27:10Z
-ENV RUBY_REVISION=5de4b1188f3355bb09123a064e19d30ca9a9f247
+# REV: [DOC] Update bundled gems list at d90401d2dabf957e9341a777788d8f 2026-05-22T03:27:17Z
+ENV RUBY_REVISION=49ca324112a5fce3d8e88a6295bced5556fb7ac5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
