@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Update bundled gems list at d90401d2dabf957e9341a777788d8f 2026-05-22T03:27:17Z
-ENV RUBY_REVISION=49ca324112a5fce3d8e88a6295bced5556fb7ac5
+# REV: ZJIT: Call only one function for newhash/toregexp (#17092) 2026-05-23T00:08:49Z
+ENV RUBY_REVISION=5855d61ee4c44a4e1b9a6244fb4a3dc7caafa7bf
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
