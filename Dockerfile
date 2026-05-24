@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Call only one function for newhash/toregexp (#17092) 2026-05-23T00:08:49Z
-ENV RUBY_REVISION=5855d61ee4c44a4e1b9a6244fb4a3dc7caafa7bf
+# REV: [DOC] Fix style of hash for Proc#binding 2026-05-24T00:51:49Z
+ENV RUBY_REVISION=25dce3749496630ba7cae9a60a598b6dc16ea962
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
