@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Fix style of hash for Proc#binding 2026-05-24T00:51:49Z
-ENV RUBY_REVISION=25dce3749496630ba7cae9a60a598b6dc16ea962
+# REV: [ruby/rubygems] Fix typos and grammar issues 2026-05-25T06:16:09Z
+ENV RUBY_REVISION=f78c9c34d620203a9aea07a5cb8db9fcf2388c2a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
