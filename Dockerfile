@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Fix typos and grammar issues 2026-05-25T06:16:09Z
-ENV RUBY_REVISION=f78c9c34d620203a9aea07a5cb8db9fcf2388c2a
+# REV: [ruby/strscan] [DOC] Correct `StringScanner#named_captures` 2026-05-26T06:59:27Z
+ENV RUBY_REVISION=7898c2c9905386484cde14ded18cd7ca73fcd2e7
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
