@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix tautological assertions in test_each_value in test_hash.rb 2026-05-27T05:12:45Z
-ENV RUBY_REVISION=261eea422a276dbc1fbfeae5b72cf32efd64b076
+# REV: Update default gems list at b0a2c22b6af33ddd895dadbaa2b09f [ci skip] 2026-05-28T07:04:09Z
+ENV RUBY_REVISION=e2891fe55cdf2cfab67492cc3af67084a85e01b3
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
