@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Update default gems list at b0a2c22b6af33ddd895dadbaa2b09f [ci skip] 2026-05-28T07:04:09Z
-ENV RUBY_REVISION=e2891fe55cdf2cfab67492cc3af67084a85e01b3
+# REV: [ruby/json] Handle invalid types passed as `max_nesting` option 2026-05-29T06:41:06Z
+ENV RUBY_REVISION=49c9046fa004e57d311f8e6b8d1f2088ad850441
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
