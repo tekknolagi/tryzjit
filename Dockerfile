@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Handle invalid types passed as `max_nesting` option 2026-05-29T06:41:06Z
-ENV RUBY_REVISION=49c9046fa004e57d311f8e6b8d1f2088ad850441
+# REV: Revert "Reserve 2 bits for expressing object layout (#17139)" 2026-05-29T23:41:31Z
+ENV RUBY_REVISION=ddb5055d961d970aded287cfebd07b78efee3ca7
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
