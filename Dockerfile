@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Revert "Reserve 2 bits for expressing object layout (#17139)" 2026-05-29T23:41:31Z
-ENV RUBY_REVISION=ddb5055d961d970aded287cfebd07b78efee3ca7
+# REV: Make TracePoint support compaction 2026-05-31T00:50:35Z
+ENV RUBY_REVISION=5e7a7f94041d9c8f940b169c145fe5fe186700cd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
