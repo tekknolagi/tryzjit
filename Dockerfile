@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Make TracePoint support compaction 2026-05-31T00:50:35Z
-ENV RUBY_REVISION=5e7a7f94041d9c8f940b169c145fe5fe186700cd
+# REV: [ruby/rubygems] Document and test all available gemrc configuration keys 2026-06-01T06:36:57Z
+ENV RUBY_REVISION=2a6353e2e51e5d6bb88e8aa18c50be55f2d49333
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
