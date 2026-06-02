@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Document and test all available gemrc configuration keys 2026-06-01T06:36:57Z
-ENV RUBY_REVISION=2a6353e2e51e5d6bb88e8aa18c50be55f2d49333
+# REV: [ruby/rubygems] Address PR review on cooldown local stub bypass 2026-06-02T07:08:19Z
+ENV RUBY_REVISION=4af3a57bb69752cc79ee853f3ddb70f119732ac4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
