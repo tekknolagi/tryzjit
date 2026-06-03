@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Address PR review on cooldown local stub bypass 2026-06-02T07:08:19Z
-ENV RUBY_REVISION=4af3a57bb69752cc79ee853f3ddb70f119732ac4
+# REV: [ruby/json] parser.c: noinline `json_eat_comments` 2026-06-03T06:52:36Z
+ENV RUBY_REVISION=695996c9764d7d49a8e3a87962f2475afb09a25c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
