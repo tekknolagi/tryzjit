@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Make the JSON parse loop iterative 2026-06-04T06:59:14Z
-ENV RUBY_REVISION=ab2bc7e9e1ca8999f2641032852c706c9d0bc6dd
+# REV: CI: Fetch vcpkg repository before install for baseline 2026-06-05T06:20:46Z
+ENV RUBY_REVISION=10f302f5877c53b878ded5698ae18dec8d5d52c4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
