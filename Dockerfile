@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: CI: Fetch vcpkg repository before install for baseline 2026-06-05T06:20:46Z
-ENV RUBY_REVISION=10f302f5877c53b878ded5698ae18dec8d5d52c4
+# REV: [Box] make the tmp array safe 2026-06-06T06:04:16Z
+ENV RUBY_REVISION=954f4dc4c82712d19f9f2a392ae262654cdc4a68
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
