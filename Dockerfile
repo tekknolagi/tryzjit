@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Box] make the tmp array safe 2026-06-06T06:04:16Z
-ENV RUBY_REVISION=954f4dc4c82712d19f9f2a392ae262654cdc4a68
+# REV: [DOC] Fnmatch examples doc 2026-06-07T05:39:34Z
+ENV RUBY_REVISION=925fa468111d5e0115237807b2ef9505c311a389
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
