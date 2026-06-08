@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Fnmatch examples doc 2026-06-07T05:39:34Z
-ENV RUBY_REVISION=925fa468111d5e0115237807b2ef9505c311a389
+# REV: [ruby/rubygems] Preserve per-source cooldown when converging sources from the lockfile 2026-06-08T07:24:32Z
+ENV RUBY_REVISION=91023dbc74479c2f92f4f1bff21900f31e30e02c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
