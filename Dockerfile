@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Preserve per-source cooldown when converging sources from the lockfile 2026-06-08T07:24:32Z
-ENV RUBY_REVISION=91023dbc74479c2f92f4f1bff21900f31e30e02c
+# REV: Don't dump memory map in crash report when modular GC enabled 2026-06-09T06:24:37Z
+ENV RUBY_REVISION=a0ceb1fed46cd34214b1bddcfbb57fdb245604bd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
