@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Don't dump memory map in crash report when modular GC enabled 2026-06-09T06:24:37Z
-ENV RUBY_REVISION=a0ceb1fed46cd34214b1bddcfbb57fdb245604bd
+# REV: [ruby/net-http] Limit the total size of response headers 2026-06-10T07:02:15Z
+ENV RUBY_REVISION=5900b2f53dd1d0788b01408f75959eda2fed9ee6
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
