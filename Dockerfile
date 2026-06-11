@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/net-http] Limit the total size of response headers 2026-06-10T07:02:15Z
-ENV RUBY_REVISION=5900b2f53dd1d0788b01408f75959eda2fed9ee6
+# REV: Keep C printf result encodings ASCII-compatible 2026-06-11T07:17:18Z
+ENV RUBY_REVISION=df0ba42552840c79f9401d555b4e3d48c4acb7ea
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
