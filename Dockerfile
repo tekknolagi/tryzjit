@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Keep C printf result encodings ASCII-compatible 2026-06-11T07:17:18Z
-ENV RUBY_REVISION=df0ba42552840c79f9401d555b4e3d48c4acb7ea
+# REV: [ruby/psych] Test other whitespace separators in datetime-like strings 2026-06-12T03:56:20Z
+ENV RUBY_REVISION=fe5d317d74260fa7bc6a8d815c1166bfadb8892a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
