@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/psych] Test other whitespace separators in datetime-like strings 2026-06-12T03:56:20Z
-ENV RUBY_REVISION=fe5d317d74260fa7bc6a8d815c1166bfadb8892a
+# REV: [ruby/digest] Implement Digest::CRC32 2026-06-13T03:25:52Z
+ENV RUBY_REVISION=0e3b8918b31963315231044c30af069e532f943f
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
