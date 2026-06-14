@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/digest] Implement Digest::CRC32 2026-06-13T03:25:52Z
-ENV RUBY_REVISION=0e3b8918b31963315231044c30af069e532f943f
+# REV: [DOC] Improve docs for ObjectSpace::InternalObjectWrapper#internal_object_id 2026-06-14T05:19:50Z
+ENV RUBY_REVISION=a6e302509bd198fbff4edd10f69eff9286e34464
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
