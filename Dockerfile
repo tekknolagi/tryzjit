@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Improve docs for ObjectSpace::InternalObjectWrapper#internal_object_id 2026-06-14T05:19:50Z
-ENV RUBY_REVISION=a6e302509bd198fbff4edd10f69eff9286e34464
+# REV: tarball-macos: Use an isolated prefix on macos-15-intel 2026-06-15T07:21:46Z
+ENV RUBY_REVISION=ee66ecf25b28e8ccf1f0aa45003941731f4e8a86
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
