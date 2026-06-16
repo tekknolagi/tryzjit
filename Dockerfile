@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: tarball-macos: Use an isolated prefix on macos-15-intel 2026-06-15T07:21:46Z
-ENV RUBY_REVISION=ee66ecf25b28e8ccf1f0aa45003941731f4e8a86
+# REV: [ruby/rubygems] Skip jobserver specs under a parent make jobserver 2026-06-16T07:44:28Z
+ENV RUBY_REVISION=c4ed8b7203033aefa070a1bb42b7b5379101f027
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
