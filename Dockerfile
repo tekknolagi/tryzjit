@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Skip jobserver specs under a parent make jobserver 2026-06-16T07:44:28Z
-ENV RUBY_REVISION=c4ed8b7203033aefa070a1bb42b7b5379101f027
+# REV: [ruby/yaml] gemspec: Drop executables configuration 2026-06-17T06:55:34Z
+ENV RUBY_REVISION=6cffa1afc7385803602bf0808de3c1cdf2eb28dd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
