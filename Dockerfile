@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/yaml] gemspec: Drop executables configuration 2026-06-17T06:55:34Z
-ENV RUBY_REVISION=6cffa1afc7385803602bf0808de3c1cdf2eb28dd
+# REV: [ruby/rubygems] Probe socket errors via SO_ERROR in TCPSocketProbe 2026-06-18T05:02:24Z
+ENV RUBY_REVISION=0f4f0b6d23c4d3e6d11f6f4071a79cb04eaee65a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
