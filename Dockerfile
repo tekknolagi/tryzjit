@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Probe socket errors via SO_ERROR in TCPSocketProbe 2026-06-18T05:02:24Z
-ENV RUBY_REVISION=0f4f0b6d23c4d3e6d11f6f4071a79cb04eaee65a
+# REV: [ruby/mmtk] Call rb_memerror when OOM 2026-06-19T07:32:49Z
+ENV RUBY_REVISION=57d5247f91b63d4c915ed94adae104eace1d0953
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
