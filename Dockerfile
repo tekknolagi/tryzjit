@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/mmtk] Call rb_memerror when OOM 2026-06-19T07:32:49Z
-ENV RUBY_REVISION=57d5247f91b63d4c915ed94adae104eace1d0953
+# REV: [Prism] RB_GC_GUARDs needed in pm_parse_string 2026-06-19T19:34:14Z
+ENV RUBY_REVISION=1165d7c6ba879531be6c5703e6bd2d6730b926f6
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
