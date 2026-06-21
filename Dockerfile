@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Prism] RB_GC_GUARDs needed in pm_parse_string 2026-06-19T19:34:14Z
-ENV RUBY_REVISION=1165d7c6ba879531be6c5703e6bd2d6730b926f6
+# REV: [ruby/openssl] Constify pkey pointers 2026-06-21T03:05:27Z
+ENV RUBY_REVISION=a2b9d6ff3b967a3b5aa908cb23548c7e39fb92cf
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
