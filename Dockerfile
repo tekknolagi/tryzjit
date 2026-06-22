@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/openssl] Constify pkey pointers 2026-06-21T03:05:27Z
-ENV RUBY_REVISION=a2b9d6ff3b967a3b5aa908cb23548c7e39fb92cf
+# REV: [ruby/mmtk] Implement allocation fast path for Immix 2026-06-22T07:33:48Z
+ENV RUBY_REVISION=0ef0856f004fcaa503c0af7fc17c835a6cf6140e
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
