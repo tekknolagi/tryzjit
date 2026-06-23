@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/mmtk] Implement allocation fast path for Immix 2026-06-22T07:33:48Z
-ENV RUBY_REVISION=0ef0856f004fcaa503c0af7fc17c835a6cf6140e
+# REV: wbcheck: rb_bug on first error on GC 2026-06-23T06:50:22Z
+ENV RUBY_REVISION=dc16cb05184cb8a54116daf597f9a8f9ad747f5e
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
