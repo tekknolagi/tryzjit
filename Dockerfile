@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: wbcheck: rb_bug on first error on GC 2026-06-23T06:50:22Z
-ENV RUBY_REVISION=dc16cb05184cb8a54116daf597f9a8f9ad747f5e
+# REV: [DOC] Update documentation of refinement super 2026-06-24T06:17:34Z
+ENV RUBY_REVISION=815710fc27bd3c12d256e14883b37d2a3c906802
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
