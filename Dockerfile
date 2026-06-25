@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Update documentation of refinement super 2026-06-24T06:17:34Z
-ENV RUBY_REVISION=815710fc27bd3c12d256e14883b37d2a3c906802
+# REV: Fix unused-but-set-global warnings in clang-23 2026-06-25T06:40:27Z
+ENV RUBY_REVISION=ac135260de1d1302e989b31e9d83cf1cab9aa281
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
