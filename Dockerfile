@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix unused-but-set-global warnings in clang-23 2026-06-25T06:40:27Z
-ENV RUBY_REVISION=ac135260de1d1302e989b31e9d83cf1cab9aa281
+# REV: Make rb_newobj_of_with_shape static 2026-06-26T07:06:43Z
+ENV RUBY_REVISION=f486ad8eedd035046f473b0e10380783408e2e35
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
