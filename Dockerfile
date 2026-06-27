@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Make rb_newobj_of_with_shape static 2026-06-26T07:06:43Z
-ENV RUBY_REVISION=f486ad8eedd035046f473b0e10380783408e2e35
+# REV: [ruby/json] Avoid Float out of range warning for clearly underflowing numbers 2026-06-27T06:16:26Z
+ENV RUBY_REVISION=0db07b1a5a6ad1c0d599c01a0d7777529e1a9693
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
