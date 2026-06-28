@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Avoid Float out of range warning for clearly underflowing numbers 2026-06-27T06:16:26Z
-ENV RUBY_REVISION=0db07b1a5a6ad1c0d599c01a0d7777529e1a9693
+# REV: [DOC] Update Set#disjoint? documentation 2026-06-27T22:59:46Z
+ENV RUBY_REVISION=4323e4f2e82842cd0cb10ba706f1cb37e8a8dd67
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
