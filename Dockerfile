@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Update Set#disjoint? documentation 2026-06-27T22:59:46Z
-ENV RUBY_REVISION=4323e4f2e82842cd0cb10ba706f1cb37e8a8dd67
+# REV: win32: rename the symlink target flag to independent 2026-06-29T06:59:21Z
+ENV RUBY_REVISION=249de200d5be1f1d1f936e40949a6b48ac9b6e25
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
