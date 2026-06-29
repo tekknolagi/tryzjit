@@ -24,6 +24,7 @@ def handle_execute(body)
     '--zjit',
     '--zjit-call-threshold=2',
     '--zjit-dump-hir-iongraph',
+    '--zjit-inline-threshold=30',
     file_path
   )
 
