@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: win32: rename the symlink target flag to independent 2026-06-29T06:59:21Z
-ENV RUBY_REVISION=249de200d5be1f1d1f936e40949a6b48ac9b6e25
+# REV: [ruby/json] Fix ResumableParser#partial_value SEGV on incomplete nested containers 2026-06-30T06:59:27Z
+ENV RUBY_REVISION=e5388655c73b33962902cb0e6afeb32137b09df7
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
