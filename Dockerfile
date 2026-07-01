@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/json] Fix ResumableParser#partial_value SEGV on incomplete nested containers 2026-06-30T06:59:27Z
-ENV RUBY_REVISION=e5388655c73b33962902cb0e6afeb32137b09df7
+# REV: Add `target_directory` option to `ln_relative` / `ln_dir_relative` 2026-07-01T06:56:29Z
+ENV RUBY_REVISION=13b5af444b701d4fbc189ecf82f491e1344b5d63
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
