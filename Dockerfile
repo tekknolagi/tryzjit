@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Add `target_directory` option to `ln_relative` / `ln_dir_relative` 2026-07-01T06:56:29Z
-ENV RUBY_REVISION=13b5af444b701d4fbc189ecf82f491e1344b5d63
+# REV: [DOC] Update Set#to_a documentation 2026-07-02T06:57:33Z
+ENV RUBY_REVISION=961ca26e6f5d4fcee3864daf6f5c847e02aec65c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
