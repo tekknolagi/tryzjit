@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Update Set#to_a documentation 2026-07-02T06:57:33Z
-ENV RUBY_REVISION=961ca26e6f5d4fcee3864daf6f5c847e02aec65c
+# REV: Group test-bundler-parallel workers by recorded runtime (#17647) 2026-07-03T05:32:29Z
+ENV RUBY_REVISION=508b486c38fe083e61675c6f10231ce971618b44
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
