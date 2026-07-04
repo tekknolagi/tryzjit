@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Group test-bundler-parallel workers by recorded runtime (#17647) 2026-07-03T05:32:29Z
-ENV RUBY_REVISION=508b486c38fe083e61675c6f10231ce971618b44
+# REV: gc: take the VM barrier inside rb_objspace_each_objects 2026-07-04T05:58:44Z
+ENV RUBY_REVISION=e5518bee27f9a89114d248dd12adb53d0ea0668c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
