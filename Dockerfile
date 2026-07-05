@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: gc: take the VM barrier inside rb_objspace_each_objects 2026-07-04T05:58:44Z
-ENV RUBY_REVISION=e5518bee27f9a89114d248dd12adb53d0ea0668c
+# REV: [DOC] Add missing half kwags to Numeric#round 2026-07-04T23:22:37Z
+ENV RUBY_REVISION=96311d13c2124a187fa85fcac8767dc01d5df3ad
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
