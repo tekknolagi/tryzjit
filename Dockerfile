@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Add missing half kwags to Numeric#round 2026-07-04T23:22:37Z
-ENV RUBY_REVISION=96311d13c2124a187fa85fcac8767dc01d5df3ad
+# REV: [ruby/prism] Accept a nested target as the first `for` loop index 2026-07-06T03:20:37Z
+ENV RUBY_REVISION=bc4960996781ff50657a0cdc6c6f30d999151f90
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
