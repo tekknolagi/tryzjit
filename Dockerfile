@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: coverage: Release me2counter when method measurement stops 2026-07-08T06:37:51Z
-ENV RUBY_REVISION=1c3b0106832b5af314b901d2490993f34430c3e6
+# REV: Remove dead RARRAY_EMBED_LEN_MAX 2026-07-09T06:53:20Z
+ENV RUBY_REVISION=61b5f059cbccd3e74a14e0e2e4d6db3bdfdb4a47
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
