@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Remove dead RARRAY_EMBED_LEN_MAX 2026-07-09T06:53:20Z
-ENV RUBY_REVISION=61b5f059cbccd3e74a14e0e2e4d6db3bdfdb4a47
+# REV: Prevent overflow of length bits for embedded arrays 2026-07-10T06:35:52Z
+ENV RUBY_REVISION=79da507032b0efb8189bf4aa19d4104263601de8
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
