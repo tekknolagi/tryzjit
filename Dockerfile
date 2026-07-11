@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Prevent overflow of length bits for embedded arrays 2026-07-10T06:35:52Z
-ENV RUBY_REVISION=79da507032b0efb8189bf4aa19d4104263601de8
+# REV: Prevent overflow of length bits for embedded structs 2026-07-11T06:20:59Z
+ENV RUBY_REVISION=916d8c105079aeae933c50b1641a2fc926059322
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
