@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Prevent overflow of length bits for embedded structs 2026-07-11T06:20:59Z
-ENV RUBY_REVISION=916d8c105079aeae933c50b1641a2fc926059322
+# REV: Reference VCPKG_DEFAULT_TRIPLET instead of hardcoding x64-windows 2026-07-12T02:02:43Z
+ENV RUBY_REVISION=8c5d047d3424839d6e3a39591a0f917da86067bd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
