@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Reference VCPKG_DEFAULT_TRIPLET instead of hardcoding x64-windows 2026-07-12T02:02:43Z
-ENV RUBY_REVISION=8c5d047d3424839d6e3a39591a0f917da86067bd
+# REV: Make `nmake benchmark` work on mswin 2026-07-13T06:04:42Z
+ENV RUBY_REVISION=c2243efe696c27d1e69bab8584bead00880f61da
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
