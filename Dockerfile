@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Make `nmake benchmark` work on mswin 2026-07-13T06:04:42Z
-ENV RUBY_REVISION=c2243efe696c27d1e69bab8584bead00880f61da
+# REV: win32/setup.mak: fix dead vs2022-fp-bug check 2026-07-14T04:34:17Z
+ENV RUBY_REVISION=7fc9f788c00488359493c2fd6465da872b3b5337
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
