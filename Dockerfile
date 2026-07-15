@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: win32/setup.mak: fix dead vs2022-fp-bug check 2026-07-14T04:34:17Z
-ENV RUBY_REVISION=7fc9f788c00488359493c2fd6465da872b3b5337
+# REV: [Feature #22097] Add Proc#refined 2026-07-15T06:21:01Z
+ENV RUBY_REVISION=cce7041630642c56dd4e32eb669d9fd8bffa4040
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
