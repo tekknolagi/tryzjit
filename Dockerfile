@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Feature #22097] Add Proc#refined 2026-07-15T06:21:01Z
-ENV RUBY_REVISION=cce7041630642c56dd4e32eb669d9fd8bffa4040
+# REV: Fix data race in rb_iseq_original_iseq 2026-07-16T06:13:09Z
+ENV RUBY_REVISION=99f2ef9c1fef5d5d13727db5b931453603d2e15a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
