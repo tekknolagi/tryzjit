@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix data race in rb_iseq_original_iseq 2026-07-16T06:13:09Z
-ENV RUBY_REVISION=99f2ef9c1fef5d5d13727db5b931453603d2e15a
+# REV: Disable DTrace on FreeBSD/aarch64 2026-07-17T06:14:18Z
+ENV RUBY_REVISION=83ec1ba89540b99e5a223418ed2bd315bfffbce5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
