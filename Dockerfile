@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Disable DTrace on FreeBSD/aarch64 2026-07-17T06:14:18Z
-ENV RUBY_REVISION=83ec1ba89540b99e5a223418ed2bd315bfffbce5
+# REV: Guard fiber target across `fiber_store`. (#17957) 2026-07-17T22:18:24Z
+ENV RUBY_REVISION=84a27934cf53ee36a19c7450622bb0266ffc0e93
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
