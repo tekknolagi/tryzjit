@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Guard fiber target across `fiber_store`. (#17957) 2026-07-17T22:18:24Z
-ENV RUBY_REVISION=84a27934cf53ee36a19c7450622bb0266ffc0e93
+# REV: [ruby/prism] Fix stack-use-after-return with unterminated heredocs 2026-07-18T20:35:38Z
+ENV RUBY_REVISION=7802cdbecdfa602d0fbd55df717e286b23d14512
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
