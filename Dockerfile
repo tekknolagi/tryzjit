@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/prism] Fix stack-use-after-return with unterminated heredocs 2026-07-18T20:35:38Z
-ENV RUBY_REVISION=7802cdbecdfa602d0fbd55df717e286b23d14512
+# REV: [ruby/time] Fix `Time.xmlschema` handling leading and trailing whitespaces 2026-07-20T06:49:43Z
+ENV RUBY_REVISION=6328380a3a83713ff6f55eec772358aadd2f9014
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
