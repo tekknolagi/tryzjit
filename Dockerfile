@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/time] Fix `Time.xmlschema` handling leading and trailing whitespaces 2026-07-20T06:49:43Z
-ENV RUBY_REVISION=6328380a3a83713ff6f55eec772358aadd2f9014
+# REV: Change RStruct to match SHAPE_ID_LAYOUT_EXTENDED 2026-07-21T06:30:12Z
+ENV RUBY_REVISION=40f105bd558f694ad3473d22442466ed168ec9f2
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
