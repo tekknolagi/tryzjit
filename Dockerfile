@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Change RStruct to match SHAPE_ID_LAYOUT_EXTENDED 2026-07-21T06:30:12Z
-ENV RUBY_REVISION=40f105bd558f694ad3473d22442466ed168ec9f2
+# REV: Remove unused commit-email helpers (#18001) 2026-07-22T06:30:04Z
+ENV RUBY_REVISION=ced416ed2822ab43076496ea5df3d77f680cc0cf
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
