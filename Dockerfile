@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Remove unused commit-email helpers (#18001) 2026-07-22T06:30:04Z
-ENV RUBY_REVISION=ced416ed2822ab43076496ea5df3d77f680cc0cf
+# REV: file: Fix off-by-one in expand_feature trailing-separator check 2026-07-23T06:42:17Z
+ENV RUBY_REVISION=056bb0c073cbbf758ef97443e9efc2f30d4adad7
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
