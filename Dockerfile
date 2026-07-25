@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: file: Fix off-by-one in expand_feature trailing-separator check 2026-07-23T06:42:17Z
-ENV RUBY_REVISION=056bb0c073cbbf758ef97443e9efc2f30d4adad7
+# REV: Allow specifying the position to start search from in Array#index and Array#rindex 2026-07-25T04:27:24Z
+ENV RUBY_REVISION=fa055b6d8bfa2510d546c2a3eb346744660073bd
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
