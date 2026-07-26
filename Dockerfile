@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Allow specifying the position to start search from in Array#index and Array#rindex 2026-07-25T04:27:24Z
-ENV RUBY_REVISION=fa055b6d8bfa2510d546c2a3eb346744660073bd
+# REV: dump_ast: Consider different OBJEXT 2026-07-26T05:11:45Z
+ENV RUBY_REVISION=f6176ad8cd766e92422de300cb8d1ebad6342952
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
