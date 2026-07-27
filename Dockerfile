@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: dump_ast: Consider different OBJEXT 2026-07-26T05:11:45Z
-ENV RUBY_REVISION=f6176ad8cd766e92422de300cb8d1ebad6342952
+# REV: Bump the github-actions group across 1 directory with 9 updates 2026-07-27T06:51:38Z
+ENV RUBY_REVISION=f8eb1fcd801527c2012d4e07fa46ee1311d71dd7
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
