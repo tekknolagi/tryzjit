@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Regenerate man pages 2026-07-28T05:23:26Z
-ENV RUBY_REVISION=fdf6dba13dbb8b9c43b56c85ebd00e892d9ba0b3
+# REV: [ruby/rubygems] Document Bundler checksum behavior for default gems 2026-07-29T05:06:48Z
+ENV RUBY_REVISION=b4e40f781a749ca66289a21dc0936f6e076d0a89
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
