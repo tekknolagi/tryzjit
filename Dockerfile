@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Document Bundler checksum behavior for default gems 2026-07-29T05:06:48Z
-ENV RUBY_REVISION=b4e40f781a749ca66289a21dc0936f6e076d0a89
+# REV: [ruby/rubygems] Warn when duplicate source declarations conflict on cooldown 2026-07-30T06:36:11Z
+ENV RUBY_REVISION=acc86e6d5c9a316fc473959a91c941f150fb5254
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
