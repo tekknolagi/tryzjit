@@ -58,21 +58,21 @@ html {
     min-height: 0;
 }
 
-.share-block {
+.share-block, .call-threshold-block {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 12px 12px 0;
 }
 
-.share-block label {
+.share-block, .call-threshold-block label {
     font-size: 12px;
     font-weight: 500;
     color: #555;
     letter-spacing: 0.02em;
 }
 
-#share-url {
+#share-url, #call-threshold {
     flex: 1;
     min-width: 0;
     padding: 6px 10px;
