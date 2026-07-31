@@ -33,6 +33,7 @@
     <script>
       const rightPanel = document.querySelector('.right-panel');
       const ui = new iongraph.StandaloneUI();
+      ui.root.id = "iongraph-root";
       rightPanel.appendChild(ui.root);
       ui.setIonJSON(window.__exportedIonJSON);
     </script>
