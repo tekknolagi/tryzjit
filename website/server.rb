@@ -152,6 +152,10 @@ loop do
       conn.print response_body
     rescue => e
       puts "Error handling request: #{e.message}"
+      begin
+        conn.print "HTTP/1.1 500 Internal Server Error\r\n\r\n#{e.message}"
+      rescue
+      end
     ensure
       conn.close
     end

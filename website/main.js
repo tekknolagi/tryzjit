@@ -120,6 +120,7 @@ async function executeCode(e) {
 
     return result;
   } catch (error) {
+    alert(error);
     console.error("Error executing code:", error);
     return null;
   }
