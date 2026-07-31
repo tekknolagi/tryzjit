@@ -14,17 +14,20 @@ def handle_execute(body)
   file_name = "#{timestamp}_#{Process.pid}.rb"
   file_path = File.join("/tmp", file_name)
 
+  parsed = JSON.parse(body)
+  code = parsed['code']
+  call_threshold = parsed['callThreshold'] || 2
+
   puts "Writing body of request to #{file_path}"
   File.open(file_path, "w") do |file|
-    file.puts(body)
+    file.puts(code)
   end
 
   stdout_and_stderr_s, status = Open3.capture2e(
-    'ruby',
-    '--zjit',
-    '--zjit-call-threshold=2',
-    '--zjit-dump-hir-iongraph',
-    '--zjit-inline-threshold=30',
+    "ruby",
+    "--zjit",
+    "--zjit-call-threshold=#{call_threshold}",
+    "--zjit-dump-hir-iongraph",
     file_path
   )
 
