@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Update default gems list at 5cee58911273a3298ab8f68520dcf9 [ci skip] 2026-07-31T06:26:53Z
-ENV RUBY_REVISION=6203e5c368a821d593a871844a56443ec741a618
+# REV: Bump the jit group across 1 directory with 2 updates 2026-08-01T02:27:08Z
+ENV RUBY_REVISION=aab76676a444630b3f925fddfb76a0358fcc56a4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
