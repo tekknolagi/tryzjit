@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the jit group across 1 directory with 2 updates 2026-08-01T02:27:08Z
-ENV RUBY_REVISION=aab76676a444630b3f925fddfb76a0358fcc56a4
+# REV: [ruby/time] Require offset when parsing RFC3339 2026-08-02T05:15:02Z
+ENV RUBY_REVISION=3ac5ce973ddc0c45ba3357b4d364844a7edf92a5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
