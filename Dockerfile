@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/time] Require offset when parsing RFC3339 2026-08-02T05:15:02Z
-ENV RUBY_REVISION=3ac5ce973ddc0c45ba3357b4d364844a7edf92a5
+# REV: [ruby/rubygems] Adapt the plugin index to Gem::YAMLSerializer semantics 2026-08-03T05:00:53Z
+ENV RUBY_REVISION=1f48cf8a4e90ff8d671b4ece298dcae980052e36
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
