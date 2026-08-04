@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Adapt the plugin index to Gem::YAMLSerializer semantics 2026-08-03T05:00:53Z
-ENV RUBY_REVISION=1f48cf8a4e90ff8d671b4ece298dcae980052e36
+# REV: [ruby/rubygems] Remove Bundler::CompactIndexClient 2026-08-04T02:34:37Z
+ENV RUBY_REVISION=ab022182a661ea98ed05aa77b701b5be7353910b
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
