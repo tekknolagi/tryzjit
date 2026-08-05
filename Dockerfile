@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Remove Bundler::CompactIndexClient 2026-08-04T02:34:37Z
-ENV RUBY_REVISION=ab022182a661ea98ed05aa77b701b5be7353910b
+# REV: compile.c: reject negative object index in the IBF loader 2026-08-05T04:36:29Z
+ENV RUBY_REVISION=91cfd2c1efe9b8ae35f4e03cf15124082edfc88b
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
