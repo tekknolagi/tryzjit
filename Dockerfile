@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: compile.c: reject negative object index in the IBF loader 2026-08-05T04:36:29Z
-ENV RUBY_REVISION=91cfd2c1efe9b8ae35f4e03cf15124082edfc88b
+# REV: [Bug #22223] Check SO_ERROR after waiting for nonblocking connect 2026-08-06T06:23:21Z
+ENV RUBY_REVISION=82294a714fe3d4cacf54fae631291df908ecb1ab
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
