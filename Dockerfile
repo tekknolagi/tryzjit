@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #22223] Check SO_ERROR after waiting for nonblocking connect 2026-08-06T06:23:21Z
-ENV RUBY_REVISION=82294a714fe3d4cacf54fae631291df908ecb1ab
+# REV: Make Module#descendants follow the ancestors of the current box 2026-08-07T04:56:38Z
+ENV RUBY_REVISION=de56b5e2f15cc867143cebc0977837bf95eba625
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
