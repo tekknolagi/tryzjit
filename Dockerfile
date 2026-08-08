@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Make Module#descendants follow the ancestors of the current box 2026-08-07T04:56:38Z
-ENV RUBY_REVISION=de56b5e2f15cc867143cebc0977837bf95eba625
+# REV: Use `assert_include` instead of `assert_includes` 2026-08-08T05:46:58Z
+ENV RUBY_REVISION=937f6c22b302cdcbb062bf9ab916c957ffc6ab49
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
