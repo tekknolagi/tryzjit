@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Use `assert_include` instead of `assert_includes` 2026-08-08T05:46:58Z
-ENV RUBY_REVISION=937f6c22b302cdcbb062bf9ab916c957ffc6ab49
+# REV: Make rb_weakmap_type static 2026-08-09T01:14:11Z
+ENV RUBY_REVISION=db99b196a5f1b2a9f7dbbdc6302fc1cefeec4675
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
