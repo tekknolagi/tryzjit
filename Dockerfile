@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Make rb_weakmap_type static 2026-08-09T01:14:11Z
-ENV RUBY_REVISION=db99b196a5f1b2a9f7dbbdc6302fc1cefeec4675
+# REV: [ruby/io-console] Improve stty console support 2026-08-10T05:06:36Z
+ENV RUBY_REVISION=9df02dd550cdcb914ecda8fd52d60d597c0965fe
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
