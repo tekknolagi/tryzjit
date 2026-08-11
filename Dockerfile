@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/io-console] Improve stty console support 2026-08-10T05:06:36Z
-ENV RUBY_REVISION=9df02dd550cdcb914ecda8fd52d60d597c0965fe
+# REV: io.c: clear the character buffer in IO#seek and IO#pos= 2026-08-10T23:41:47Z
+ENV RUBY_REVISION=fa0edeb757d3b7edca3bf5fda8eb85d22476ac49
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
