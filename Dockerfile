@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: io.c: clear the character buffer in IO#seek and IO#pos= 2026-08-10T23:41:47Z
-ENV RUBY_REVISION=fa0edeb757d3b7edca3bf5fda8eb85d22476ac49
+# REV: Bump the github-actions group across 1 directory with 2 updates 2026-08-12T02:39:28Z
+ENV RUBY_REVISION=c6e9858440f666805cf19cb3db7177f83b88d825
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
