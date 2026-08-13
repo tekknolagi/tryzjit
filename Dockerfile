@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the github-actions group across 1 directory with 2 updates 2026-08-12T02:39:28Z
-ENV RUBY_REVISION=c6e9858440f666805cf19cb3db7177f83b88d825
+# REV: [Bug #22243] Ensure forked process to terminate 2026-08-13T05:11:29Z
+ENV RUBY_REVISION=fff4e38e4a44a1e9748e9f47b87cbe393b4495a1
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
