@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #22243] Ensure forked process to terminate 2026-08-13T05:11:29Z
-ENV RUBY_REVISION=fff4e38e4a44a1e9748e9f47b87cbe393b4495a1
+# REV: [ruby/digest] Define BLAKE3 version constants 2026-08-15T02:48:52Z
+ENV RUBY_REVISION=d17a0d008310e36d1e16f9614c7ca01fe38cf3d6
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
