@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/digest] Define BLAKE3 version constants 2026-08-15T02:48:52Z
-ENV RUBY_REVISION=d17a0d008310e36d1e16f9614c7ca01fe38cf3d6
+# REV: Share bundled gem caches across runners 2026-08-16T03:33:29Z
+ENV RUBY_REVISION=ab454af573614ab5521db4be8f22107914dc9f55
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
