@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Share bundled gem caches across runners 2026-08-16T03:33:29Z
-ENV RUBY_REVISION=ab454af573614ab5521db4be8f22107914dc9f55
+# REV: Silently delete directories that may not exist [ci skip] 2026-08-17T03:05:20Z
+ENV RUBY_REVISION=89dc7b1004a9ad5a69b9697df18b4ffcc01b2d04
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
