@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump taiki-e/install-action 2026-08-18T02:33:42Z
-ENV RUBY_REVISION=98b3b8034d5dcbf8f59041c933bb4c5860cf5cd5
+# REV: ZJIT: Allow shareable consts in multi-ractor mode 2026-08-19T02:49:02Z
+ENV RUBY_REVISION=7838416cec9649128a6c74282d4a6d3cd7e2f848
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
