@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Allow shareable consts in multi-ractor mode 2026-08-19T02:49:02Z
-ENV RUBY_REVISION=7838416cec9649128a6c74282d4a6d3cd7e2f848
+# REV: Shrink lvar_states in iseq 2026-08-20T05:50:30Z
+ENV RUBY_REVISION=4012a96bf084d035bf582d58c7dafb31f4762ac6
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
