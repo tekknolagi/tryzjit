@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Shrink lvar_states in iseq 2026-08-20T05:50:30Z
-ENV RUBY_REVISION=4012a96bf084d035bf582d58c7dafb31f4762ac6
+# REV: [ruby/rubygems] Update vendored resolv to 0.7.1 2026-08-21T05:21:06Z
+ENV RUBY_REVISION=92e6e6806637301acb46092b53858f9ae2c79912
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
