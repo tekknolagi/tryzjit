@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Update vendored resolv to 0.7.1 2026-08-21T05:21:06Z
-ENV RUBY_REVISION=92e6e6806637301acb46092b53858f9ae2c79912
+# REV: Make `IO::Buffer` locks reference counted. (#18429) 2026-08-22T04:43:18Z
+ENV RUBY_REVISION=c5a2c145c7f386c27c2429847cacb8a9d82465c6
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
