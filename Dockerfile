@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Make `IO::Buffer` locks reference counted. (#18429) 2026-08-22T04:43:18Z
-ENV RUBY_REVISION=c5a2c145c7f386c27c2429847cacb8a9d82465c6
+# REV: Don't use iseq_body pointer for proc hash 2026-08-23T05:56:50Z
+ENV RUBY_REVISION=e61f5c3b3dfbd7493c2d395f77d5e19c6fe40495
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
