@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Don't use iseq_body pointer for proc hash 2026-08-23T05:56:50Z
-ENV RUBY_REVISION=e61f5c3b3dfbd7493c2d395f77d5e19c6fe40495
+# REV: Make empty `IO::Buffer` slices valid. (#18461) 2026-08-24T04:46:19Z
+ENV RUBY_REVISION=4c978a5be5028dc73860e5662c74427632ec2ff0
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
