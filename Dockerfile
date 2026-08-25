@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Make empty `IO::Buffer` slices valid. (#18461) 2026-08-24T04:46:19Z
-ENV RUBY_REVISION=4c978a5be5028dc73860e5662c74427632ec2ff0
+# REV: Preserve `IO::Buffer` read-only state when resizing. (#18487) 2026-08-25T04:55:09Z
+ENV RUBY_REVISION=b9bcae995d58c48b5f0f828f29d721d3ff525dbb
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
