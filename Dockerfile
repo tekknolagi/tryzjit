@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Preserve `IO::Buffer` read-only state when resizing. (#18487) 2026-08-25T04:55:09Z
-ENV RUBY_REVISION=b9bcae995d58c48b5f0f828f29d721d3ff525dbb
+# REV: Bump taiki-e/install-action 2026-08-26T06:04:48Z
+ENV RUBY_REVISION=4a6678f641952f711058f9143d2a8f6171b03858
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
