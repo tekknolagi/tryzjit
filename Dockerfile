@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: hash.c: avoid signed integer overflow in ar_hint_first_match SWAR splat 2026-08-28T07:43:16Z
-ENV RUBY_REVISION=69b49ac7aedc5370512c158d6bbc7f077a85acd7
+# REV: Dynamically derive base_label in iseq 2026-08-29T05:17:06Z
+ENV RUBY_REVISION=fcbdc2072d628d1464dc9289da140e0c957621cb
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
