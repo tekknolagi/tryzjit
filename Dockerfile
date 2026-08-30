@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Dynamically derive base_label in iseq 2026-08-29T05:17:06Z
-ENV RUBY_REVISION=fcbdc2072d628d1464dc9289da140e0c957621cb
+# REV: [Bug #22269] Make coverage_enabled: false effective for compile/compile_file 2026-08-29T06:48:53Z
+ENV RUBY_REVISION=22e4a75d67d1e25deed4dce5b801397713dbdefa
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
