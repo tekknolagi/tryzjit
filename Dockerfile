@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #22269] Make coverage_enabled: false effective for compile/compile_file 2026-08-29T06:48:53Z
-ENV RUBY_REVISION=22e4a75d67d1e25deed4dce5b801397713dbdefa
+# REV: Do not mix the PID into the fallback random suffix 2026-08-31T05:43:42Z
+ENV RUBY_REVISION=6eba15864c427c23b606aca55bccc4c5af8ac4c1
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
