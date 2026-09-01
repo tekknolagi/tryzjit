@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Do not mix the PID into the fallback random suffix 2026-08-31T05:43:42Z
-ENV RUBY_REVISION=6eba15864c427c23b606aca55bccc4c5af8ac4c1
+# REV: ZJIT: Override megamorphic profiles with static type info 2026-09-01T05:37:40Z
+ENV RUBY_REVISION=f25d7719e9b61bc471c7eb11c06f2344fd1eb705
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
