@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Override megamorphic profiles with static type info 2026-09-01T05:37:40Z
-ENV RUBY_REVISION=f25d7719e9b61bc471c7eb11c06f2344fd1eb705
+# REV: JIT: Reduce jit_entry_calls/jit_exception_calls to 32 bits 2026-09-02T04:00:08Z
+ENV RUBY_REVISION=90e8610e0d7e43a860b7590e670ca5d6985e926e
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
