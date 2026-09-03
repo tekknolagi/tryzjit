@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: JIT: Reduce jit_entry_calls/jit_exception_calls to 32 bits 2026-09-02T04:00:08Z
-ENV RUBY_REVISION=90e8610e0d7e43a860b7590e670ca5d6985e926e
+# REV: [DOC] Harmonize join methods 2026-09-03T05:11:48Z
+ENV RUBY_REVISION=409c74f979c20289be43aa69451e2ce22ff3d573
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
