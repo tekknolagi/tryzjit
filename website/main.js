@@ -90,14 +90,18 @@ function renderNoFunctions(iongraphRoot) {
   `;
 }
 
-async function executeCode() {
+async function executeCode(e) {
   const code = editor.value;
+
+  const callThresholdInput = document.getElementById("call-threshold");
+  const parsed = parseInt(callThresholdInput.value, 10);
+  const callThreshold = Number.isFinite(parsed) ? parsed : 2;
 
   try {
     const response = await fetch("/execute", {
       method: "POST",
-      headers: { "Content-Type": "text/plain" },
-      body: code,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code, callThreshold }),
     });
 
     const result = await response.json();
@@ -116,6 +120,7 @@ async function executeCode() {
 
     return result;
   } catch (error) {
+    alert(error);
     console.error("Error executing code:", error);
     return null;
   }
