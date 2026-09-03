@@ -104,8 +104,8 @@ def handle_request(request_line, headers, body)
 end
 
 $shutdown = false
-server = TCPServer.new('0.0.0.0', 8081)
-puts "Listening on http://0.0.0.0:8081"
+server = TCPServer.new('127.0.0.1', 8081)
+puts "Listening on http://127.0.0.1:8081"
 
 trap('INT') do
   puts "\nShutting down..."
