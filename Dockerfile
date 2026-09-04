@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Harmonize join methods 2026-09-03T05:11:48Z
-ENV RUBY_REVISION=409c74f979c20289be43aa69451e2ce22ff3d573
+# REV: Note the Windows Etc.getlogin change in NEWS 2026-09-04T04:46:31Z
+ENV RUBY_REVISION=bfaf35df44849cf01d4eb7c15968243ea401130a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
