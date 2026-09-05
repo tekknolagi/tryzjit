@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Note the Windows Etc.getlogin change in NEWS 2026-09-04T04:46:31Z
-ENV RUBY_REVISION=bfaf35df44849cf01d4eb7c15968243ea401130a
+# REV: ZJIT: Allocate JITFrames below INT32_MAX (#18620) 2026-09-05T00:35:46Z
+ENV RUBY_REVISION=ce1eaf724f17561a1978f61d780b8977230930c8
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
