@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Allocate JITFrames below INT32_MAX (#18620) 2026-09-05T00:35:46Z
-ENV RUBY_REVISION=ce1eaf724f17561a1978f61d780b8977230930c8
+# REV: Report a void value in an and/or chain only once 2026-09-05T12:59:07Z
+ENV RUBY_REVISION=a946c1bd8e5e7e03e938fe5bb4df942affa95ec6
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
