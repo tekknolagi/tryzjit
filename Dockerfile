@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Report a void value in an and/or chain only once 2026-09-05T12:59:07Z
-ENV RUBY_REVISION=a946c1bd8e5e7e03e938fe5bb4df942affa95ec6
+# REV: [ruby/rubygems] Report coverage once per test run 2026-09-07T05:31:25Z
+ENV RUBY_REVISION=443cd40febd80126566a6f2bec4713d8de1d0fef
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
