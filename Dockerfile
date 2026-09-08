@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Report coverage once per test run 2026-09-07T05:31:25Z
-ENV RUBY_REVISION=443cd40febd80126566a6f2bec4713d8de1d0fef
+# REV: Do not look in front of a receiver shorter than one character in chomp 2026-09-08T04:54:26Z
+ENV RUBY_REVISION=be00aa83bac2c09ddfc6ba8c5aaed5654b3ecc40
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
