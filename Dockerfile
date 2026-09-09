@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Do not look in front of a receiver shorter than one character in chomp 2026-09-08T04:54:26Z
-ENV RUBY_REVISION=be00aa83bac2c09ddfc6ba8c5aaed5654b3ecc40
+# REV: Fix unused warning for mn_threads_enabled_p 2026-09-09T05:56:16Z
+ENV RUBY_REVISION=f3a976006b7f5306d07fa580aed687f1b9ff1255
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
