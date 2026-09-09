@@ -73,16 +73,20 @@ editor.textarea.addEventListener("input", debounce(() => {
   saveShareUrl(editor.value);
 }, DEBOUNCE_TIMEOUT_MS));
 
-function renderError(iongraphRoot, error) {
-  iongraphRoot.innerHTML = `
+function renderError(iongraphRoot, errorBox, error) {
+  iongraphRoot.style.display = "none";
+  errorBox.style.display = "block";
+  errorBox.innerHTML = `
     <div class="compile-fail">
       <strong>Compilation Error:</strong>\n\n${error}
     </div>
   `;
 }
 
-function renderNoFunctions(iongraphRoot) {
-  iongraphRoot.innerHTML = `
+function renderNoFunctions(iongraphRoot, errorBox) {
+  iongraphRoot.style.display = "none";
+  errorBox.style.display = "block";
+  errorBox.innerHTML = `
     <div class="no-functions">
       <strong>No functions compiled to iongraph</strong><br><br>
       Try adding a function that gets called at least twice.
@@ -106,16 +110,19 @@ async function executeCode(e) {
 
     const result = await response.json();
     const iongraphRoot = document.getElementById("iongraph-root");
+    const errorBox = document.getElementById("ui-error");
+    iongraphRoot.style.display = "block";
+    errorBox.style.display = "none";
 
     if (result.error) {
-      renderError(iongraphRoot, result.error);
+      renderError(iongraphRoot, errorBox, result.error);
       return null;
     }
 
     if (result.functions && result.functions.length > 0) {
       ui.setIonJSON(result);
     } else {
-      renderNoFunctions(iongraphRoot);
+      renderNoFunctions(iongraphRoot, errorBox);
     }
 
     return result;
