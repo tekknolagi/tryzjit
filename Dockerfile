@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix unused warning for mn_threads_enabled_p 2026-09-09T05:56:16Z
-ENV RUBY_REVISION=f3a976006b7f5306d07fa580aed687f1b9ff1255
+# REV: gc: only clear try_clock_gettime when the clock actually failed 2026-09-10T05:37:26Z
+ENV RUBY_REVISION=8cba938ed45aa6f78bbd92eb6aeb2058b6168c45
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
