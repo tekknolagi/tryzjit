@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: gc: only clear try_clock_gettime when the clock actually failed 2026-09-10T05:37:26Z
-ENV RUBY_REVISION=8cba938ed45aa6f78bbd92eb6aeb2058b6168c45
+# REV: Remove the workqueue 2026-09-11T05:47:50Z
+ENV RUBY_REVISION=64b7a5671d37aa069c1cbeb89f472605024f7143
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
