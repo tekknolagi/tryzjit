@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Remove the workqueue 2026-09-11T05:47:50Z
-ENV RUBY_REVISION=64b7a5671d37aa069c1cbeb89f472605024f7143
+# REV: Add SHSTK support to AMD64 coroutines. (#5895) 2026-09-12T04:07:08Z
+ENV RUBY_REVISION=81757ddd75918130576cf7b050b057e0552591b4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
