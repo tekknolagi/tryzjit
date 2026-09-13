@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Add SHSTK support to AMD64 coroutines. (#5895) 2026-09-12T04:07:08Z
-ENV RUBY_REVISION=81757ddd75918130576cf7b050b057e0552591b4
+# REV: Use Set instead of Hash for Enumerable#uniq 2026-09-13T05:34:33Z
+ENV RUBY_REVISION=29c669bb5689955546ef0531b3bddd7d20cdec9c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
