@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Use Set instead of Hash for Enumerable#uniq 2026-09-13T05:34:33Z
-ENV RUBY_REVISION=29c669bb5689955546ef0531b3bddd7d20cdec9c
+# REV: coroutine: unlock pthread guard on setup failure. (#18818) 2026-09-14T04:56:14Z
+ENV RUBY_REVISION=d568c610946b44722ffb51ab7b36edc2e779d306
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
