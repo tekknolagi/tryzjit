@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: coroutine: unlock pthread guard on setup failure. (#18818) 2026-09-14T04:56:14Z
-ENV RUBY_REVISION=d568c610946b44722ffb51ab7b36edc2e779d306
+# REV: Notify Slack when publishing Ruby packages finishes 2026-09-15T05:36:12Z
+ENV RUBY_REVISION=3296d5c99ce005e4698fb27a405e01d766ad2647
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
