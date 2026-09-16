@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Notify Slack when publishing Ruby packages finishes 2026-09-15T05:36:12Z
-ENV RUBY_REVISION=3296d5c99ce005e4698fb27a405e01d766ad2647
+# REV: Fix the check for an already loaded mkmf.rb 2026-09-16T04:54:16Z
+ENV RUBY_REVISION=e22f51b7800e7fc9029f6d8ce0691c210c5ddcde
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
