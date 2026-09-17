@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix the check for an already loaded mkmf.rb 2026-09-16T04:54:16Z
-ENV RUBY_REVISION=e22f51b7800e7fc9029f6d8ce0691c210c5ddcde
+# REV: Update default gems list at 9099b5f81a66db870ee56c1785913f [ci skip] 2026-09-17T05:32:32Z
+ENV RUBY_REVISION=91810913bd418c066ee77117642275791f438af3
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
