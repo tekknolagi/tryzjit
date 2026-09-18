@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Update default gems list at 9099b5f81a66db870ee56c1785913f [ci skip] 2026-09-17T05:32:32Z
-ENV RUBY_REVISION=91810913bd418c066ee77117642275791f438af3
+# REV: Fix buffer overflow in String#slice! when string modified 2026-09-18T05:29:05Z
+ENV RUBY_REVISION=ab5d140de86473b6bfb8205a4622bf26d51edd69
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
