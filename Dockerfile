@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix buffer overflow in String#slice! when string modified 2026-09-18T05:29:05Z
-ENV RUBY_REVISION=ab5d140de86473b6bfb8205a4622bf26d51edd69
+# REV: [Bug #22336] Fix use-after-free in `IO::Buffer#get_string`. (#18919) 2026-09-19T04:34:06Z
+ENV RUBY_REVISION=b61da996afb02715cb16703a55f57c4417fd2d5b
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
