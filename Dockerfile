@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #22336] Fix use-after-free in `IO::Buffer#get_string`. (#18919) 2026-09-19T04:34:06Z
-ENV RUBY_REVISION=b61da996afb02715cb16703a55f57c4417fd2d5b
+# REV: Fix use-after-free in String#each_line with separator modified 2026-09-20T01:21:03Z
+ENV RUBY_REVISION=5a4ccd91b6d28712a9c4ca7f4290f89dc338ebc6
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
