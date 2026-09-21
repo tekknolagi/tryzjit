@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix use-after-free in String#each_line with separator modified 2026-09-20T01:21:03Z
-ENV RUBY_REVISION=5a4ccd91b6d28712a9c4ca7f4290f89dc338ebc6
+# REV: [ruby/fileutils] Remove redundant condition 2026-09-21T03:07:33Z
+ENV RUBY_REVISION=647e6e61c1c9588d8debf6736f368fdfa291ca7b
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
