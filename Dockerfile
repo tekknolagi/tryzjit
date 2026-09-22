@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/fileutils] Remove redundant condition 2026-09-21T03:07:33Z
-ENV RUBY_REVISION=647e6e61c1c9588d8debf6736f368fdfa291ca7b
+# REV: [DOC] Clarify that `File.exist?` follows symbolic links 2026-09-22T05:04:48Z
+ENV RUBY_REVISION=d1d487f438cc7e1296b5b60c035210cadd94d5b5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
