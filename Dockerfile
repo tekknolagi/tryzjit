@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Clarify that `File.exist?` follows symbolic links 2026-09-22T05:04:48Z
-ENV RUBY_REVISION=d1d487f438cc7e1296b5b60c035210cadd94d5b5
+# REV: Fix use-after-free in String#unpack 2026-09-23T05:53:49Z
+ENV RUBY_REVISION=852b24345a05e01f32a10bb0a0e6cfb578f2d0ae
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
