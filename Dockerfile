@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix use-after-free in String#unpack 2026-09-23T05:53:49Z
-ENV RUBY_REVISION=852b24345a05e01f32a10bb0a0e6cfb578f2d0ae
+# REV: Cover the other callers that reach the same scan 2026-09-24T05:27:54Z
+ENV RUBY_REVISION=5002cd04595935be1f5bc375db9bb99457d04ea5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
