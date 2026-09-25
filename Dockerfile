@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Cover the other callers that reach the same scan 2026-09-24T05:27:54Z
-ENV RUBY_REVISION=5002cd04595935be1f5bc375db9bb99457d04ea5
+# REV: [ruby/rubygems] Keep credentials on redirects only within the same origin 2026-09-25T05:34:41Z
+ENV RUBY_REVISION=b334340263d78a67db0b5ce27dac8b0736e8a3f4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
