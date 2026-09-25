@@ -64,7 +64,16 @@ const editor = new Yace("#editor-yace", {
 
 editor.textarea.spellcheck = false;
 
-editor.textarea.addEventListener("keydown", (e) => e.stopPropagation());
+const IS_MAC = /Mac|iPhone|iPad/.test(navigator.platform);
+
+editor.textarea.addEventListener("keydown", (e) => {
+  e.stopPropagation();
+  const modifier = IS_MAC ? e.metaKey : e.ctrlKey;
+  if (modifier && e.key === "Enter") {
+    e.preventDefault();
+    executeCode(e);
+  }
+});
 
 saveShareUrl(editor.value);
 
