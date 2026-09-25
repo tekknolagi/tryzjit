@@ -13,6 +13,7 @@ html {
 .container {
     display: flex;
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
     padding: 8px 24px;
 }
