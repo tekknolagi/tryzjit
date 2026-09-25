@@ -111,8 +111,6 @@ async function executeCode(e) {
     const result = await response.json();
     const iongraphRoot = document.getElementById("iongraph-root");
     const errorBox = document.getElementById("ui-error");
-    // Clear the inline style rather than forcing "block" so iongraph's own
-    // flex-column layout (menu bar above graph) is restored.
     iongraphRoot.style.display = "";
     errorBox.style.display = "none";
 

@@ -41,10 +41,6 @@ html {
     position: relative;
 }
 
-#ui-error {
-    flex: 1;
-}
-
 #editor {
     flex: 1;
     overflow: auto;
