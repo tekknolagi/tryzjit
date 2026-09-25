@@ -41,14 +41,8 @@ html {
     position: relative;
 }
 
-#iongraph-root>*:not(.no-functions, .compile-fail) {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+#ui-error {
+    flex: 1;
 }
 
 #editor {
