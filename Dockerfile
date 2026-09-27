@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix init_is_float bug 2026-09-26T04:24:02Z
-ENV RUBY_REVISION=da3e1fcb685864a2f58f113e82d9dc67d7fe9197
+# REV: Etc.uname: Report the actual Windows version 2026-09-27T05:30:49Z
+ENV RUBY_REVISION=f6ff9e7d02e46360f8930b280a3dd921cccbda29
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
