@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Etc.uname: Report the actual Windows version 2026-09-27T05:30:49Z
-ENV RUBY_REVISION=f6ff9e7d02e46360f8930b280a3dd921cccbda29
+# REV: Treat empty `IO::Buffer` ranges as non-overlapping. (#19088) 2026-09-28T04:13:38Z
+ENV RUBY_REVISION=c568687e452d474e8bc916597b3e9a2d1ae14757
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
