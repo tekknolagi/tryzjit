@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: mswin: Pass INSTALL_STATIC_LIBRARY to RbConfig 2026-09-29T05:50:41Z
-ENV RUBY_REVISION=f9ce29e0e6206403dcfabdc2d5ab1ed5a23cbc79
+# REV: [ruby/rubygems] Remove unused Dependency#sparse_checkout 2026-10-01T04:48:41Z
+ENV RUBY_REVISION=c2905e9544f54f08cee5c902f5968612818e8374
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
