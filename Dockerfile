@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Remove unused Dependency#sparse_checkout 2026-10-01T04:48:41Z
-ENV RUBY_REVISION=c2905e9544f54f08cee5c902f5968612818e8374
+# REV: [ruby/resolv] Bound the number of compression pointers per name 2026-10-02T05:54:42Z
+ENV RUBY_REVISION=fccc81a3e63cf047059262aa9b5ecf11845a7399
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
