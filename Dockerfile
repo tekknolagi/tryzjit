@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/resolv] Bound the number of compression pointers per name 2026-10-02T05:54:42Z
-ENV RUBY_REVISION=fccc81a3e63cf047059262aa9b5ecf11845a7399
+# REV: Remove dead ROBJECT_EMBED_LEN_MAX macro 2026-10-03T01:14:43Z
+ENV RUBY_REVISION=c6a042f7a4077d741d075cbdd6028fea1e0f9409
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
