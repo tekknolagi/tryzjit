@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Remove dead ROBJECT_EMBED_LEN_MAX macro 2026-10-03T01:14:43Z
-ENV RUBY_REVISION=c6a042f7a4077d741d075cbdd6028fea1e0f9409
+# REV: Remove `test-all` job for `--repeat-count=2` 2026-10-04T04:17:52Z
+ENV RUBY_REVISION=b61936bc29156f6abff617f381d968a25b1a8e79
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
