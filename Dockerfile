@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Remove `test-all` job for `--repeat-count=2` 2026-10-04T04:17:52Z
-ENV RUBY_REVISION=b61936bc29156f6abff617f381d968a25b1a8e79
+# REV: [DOC] Harmonize atime methods- #19206 2026-10-05T03:38:52Z
+ENV RUBY_REVISION=3ce63c09207c704ece92c800dec01ea26b45bcb3
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
