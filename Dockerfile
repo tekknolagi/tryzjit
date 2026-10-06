@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Harmonize atime methods- #19206 2026-10-05T03:38:52Z
-ENV RUBY_REVISION=3ce63c09207c704ece92c800dec01ea26b45bcb3
+# REV: win32: Exit configure.bat with the status of nmake 2026-10-06T05:59:11Z
+ENV RUBY_REVISION=062f97ac7b9e0a023a647143ef86e0b51a994a28
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
