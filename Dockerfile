@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/net-http] Don't use trailing spaces in test (https://github.com/ruby/net-http/pull/350) 2026-10-07T03:05:32Z
-ENV RUBY_REVISION=981b020a9fc8baf4e889ffffb002d7031c90ef0b
+# REV: Update default gems list at e8ec35be07e27bea6a16e6a4c4f42b [ci skip] 2026-10-08T05:06:04Z
+ENV RUBY_REVISION=c487c56035a7c649515172945e6272a721ae9ae4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
