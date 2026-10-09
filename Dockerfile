@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Update default gems list at e8ec35be07e27bea6a16e6a4c4f42b [ci skip] 2026-10-08T05:06:04Z
-ENV RUBY_REVISION=c487c56035a7c649515172945e6272a721ae9ae4
+# REV: Fix assertion error when duplicating uninitialized class 2026-10-09T05:32:41Z
+ENV RUBY_REVISION=4fb7434598e3784488129ad4d80b96bf0584d9d4
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
