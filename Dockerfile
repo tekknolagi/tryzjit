@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/openssl] Use rb_len_t for String lengths and Array indices, part 2 2026-10-11T05:09:37Z
-ENV RUBY_REVISION=d9d82019c4a7f8d77bab99d5f19ec4ff7a0ec35b
+# REV: Bump the github-actions group across 1 directory with 7 updates 2026-10-12T05:59:40Z
+ENV RUBY_REVISION=3aa202a75ae18bcc2f8dbd43c43fa411e386d4a5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
