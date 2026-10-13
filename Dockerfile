@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the github-actions group across 1 directory with 7 updates 2026-10-12T05:59:40Z
-ENV RUBY_REVISION=3aa202a75ae18bcc2f8dbd43c43fa411e386d4a5
+# REV: [ruby/mmtk] Build with LTO when able 2026-10-13T04:14:24Z
+ENV RUBY_REVISION=83fdd0da952a31630b2f16a315483a2222fb437f
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
