@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/mmtk] Build with LTO when able 2026-10-13T04:14:24Z
-ENV RUBY_REVISION=83fdd0da952a31630b2f16a315483a2222fb437f
+# REV: [ruby/resolv] Bind the random UDP source port exclusively on Windows 2026-10-14T05:46:26Z
+ENV RUBY_REVISION=daa307aa875fd969dd9a20c82c6fbc2d45e6f042
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
