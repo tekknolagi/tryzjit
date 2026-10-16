@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix SEGV when referencing an autoload constant from multiple Ractors 2026-10-15T05:01:56Z
-ENV RUBY_REVISION=8a060f90ba36441cfeb509eacb10f609314f5bfe
+# REV: Bump the github-actions group across 1 directory with 2 updates 2026-10-16T02:35:00Z
+ENV RUBY_REVISION=0a1c71148a53007bd6db4658e5f074b2d390cb7c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
