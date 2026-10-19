@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Fix indentation in packed_data.md 2026-10-18T02:07:34Z
-ENV RUBY_REVISION=af502c75307230d0ba5d9c99d4e24de9e7775df6
+# REV: [ruby/test-unit-ruby-core] Wait indefinitely for dumped child processes 2026-10-19T05:29:00Z
+ENV RUBY_REVISION=d60c0505beedd000e5b8d2323e8b493ede87607a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
