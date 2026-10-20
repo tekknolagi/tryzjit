@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/test-unit-ruby-core] Wait indefinitely for dumped child processes 2026-10-19T05:29:00Z
-ENV RUBY_REVISION=d60c0505beedd000e5b8d2323e8b493ede87607a
+# REV: * addr2line.c (main_exe_path): support OpenBSD via getexecpath() 2026-10-20T03:30:49Z
+ENV RUBY_REVISION=6aa5fae6d9e469543adbf706302d0edc1d4b1728
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
