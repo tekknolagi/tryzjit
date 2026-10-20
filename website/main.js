@@ -103,6 +103,23 @@ function renderNoFunctions(iongraphRoot, errorBox) {
   `;
 }
 
+function selectLastPass() {
+  const graph = ui.graph;
+  const passes = ui.func?.passes;
+  if (graph && passes && passes.length > 0) {
+    graph.switchPass(passes.length - 1);
+    // The last pass is usually below the fold of the pass sidebar.
+    const selected = graph.sidebarLinks?.[passes.length - 1];
+    selected?.scrollIntoView({ block: "nearest" });
+  }
+}
+
+const originalSwitchFunc = ui.switchFunc.bind(ui);
+ui.switchFunc = function (func) {
+  originalSwitchFunc(func);
+  selectLastPass();
+};
+
 async function executeCode(e) {
   const code = editor.value;
 
