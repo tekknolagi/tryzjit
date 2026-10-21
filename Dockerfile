@@ -12,6 +12,7 @@ RUN apt install -y \
     libyaml-dev \
     patch \
     pkg-config \
+    xz-utils \
     zlib1g-dev \
     make
 RUN adduser --disabled-password user
