@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: * addr2line.c (main_exe_path): support OpenBSD via getexecpath() 2026-10-20T03:30:49Z
-ENV RUBY_REVISION=6aa5fae6d9e469543adbf706302d0edc1d4b1728
+# REV: Keep capture group indices in long 2026-10-21T04:37:54Z
+ENV RUBY_REVISION=6a81db9d5ff8e8db2a40a33885ff290c6425cc22
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
