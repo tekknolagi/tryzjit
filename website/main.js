@@ -2,8 +2,10 @@ import Yace from "./vendor/yace.min.js";
 import tab from "./vendor/tab.js";
 
 const DEBOUNCE_TIMEOUT_MS = 500;
-const STORAGE_KEY = "iongraph-saved-code";
-const DEFAULT_TEXT = `def one
+const PAGE = document.body.dataset;
+const STORAGE_KEY = PAGE.storageKey ?? "iongraph-saved-code";
+const PAGE_DEFAULT_TEXT = document.getElementById("default-code")?.textContent.replace(/^\n/, "");
+const DEFAULT_TEXT = PAGE_DEFAULT_TEXT ?? `def one
   1
 end
 
@@ -131,7 +133,7 @@ async function executeCode(e) {
     const response = await fetch("/execute", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code, callThreshold }),
+      body: JSON.stringify({ code, callThreshold, rails: PAGE.rails === "true" }),
     });
 
     const result = await response.json();
