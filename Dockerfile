@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Keep capture group indices in long 2026-10-21T04:37:54Z
-ENV RUBY_REVISION=6a81db9d5ff8e8db2a40a33885ff290c6425cc22
+# REV: [Bug #22461] Fix dangling pointers after associating encoding 2026-10-22T01:46:22Z
+ENV RUBY_REVISION=faefcb11050ea61ee011e3b73c929ff406d30b68
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
