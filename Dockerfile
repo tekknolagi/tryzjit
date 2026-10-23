@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #22461] Fix dangling pointers after associating encoding 2026-10-22T01:46:22Z
-ENV RUBY_REVISION=faefcb11050ea61ee011e3b73c929ff406d30b68
+# REV: ZJIT: Inline iseq calls with a # REV: [Bug #22461] Fix dangling pointers after associating encoding 2026-10-22T01:46:22Zproc block argument (#19077) 2026-10-23T04:00:19Z
+ENV RUBY_REVISION=50f1aca061ec70a28dc7c64d4c6a294f2de7c481
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
