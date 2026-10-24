@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Inline iseq calls with a # REV: [Bug #22461] Fix dangling pointers after associating encoding 2026-10-22T01:46:22Zproc block argument (#19077) 2026-10-23T04:00:19Z
-ENV RUBY_REVISION=50f1aca061ec70a28dc7c64d4c6a294f2de7c481
+# REV: ZJIT: Perform code range scans without side-exit (#19454) 2026-10-24T02:24:51Z
+ENV RUBY_REVISION=83c63ffc9e6699e61ccfbfc8e568d2b7b1319c42
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
