@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Perform code range scans without side-exit (#19454) 2026-10-24T02:24:51Z
-ENV RUBY_REVISION=83c63ffc9e6699e61ccfbfc8e568d2b7b1319c42
+# REV: Fix IO reading without GVL during GC compaction 2026-10-25T05:27:26Z
+ENV RUBY_REVISION=0b7838e23b8f9b01765dafd5e675da6113f5b566
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
