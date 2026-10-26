@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix IO reading without GVL during GC compaction 2026-10-25T05:27:26Z
-ENV RUBY_REVISION=0b7838e23b8f9b01765dafd5e675da6113f5b566
+# REV: [ruby/rubygems] Skip only a missing bin directory, before asking about executables 2026-10-26T05:41:20Z
+ENV RUBY_REVISION=329d9a513f1570131d5034819470ecea0e905a8d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
