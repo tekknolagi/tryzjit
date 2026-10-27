@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Skip only a missing bin directory, before asking about executables 2026-10-26T05:41:20Z
-ENV RUBY_REVISION=329d9a513f1570131d5034819470ecea0e905a8d
+# REV: Bump ruby/setup-ruby 2026-10-27T02:47:35Z
+ENV RUBY_REVISION=9647794c8931553a301b3ea5ba09a389ea75ccb2
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
