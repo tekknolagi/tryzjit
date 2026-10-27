@@ -8,6 +8,16 @@ require 'fileutils'
 require 'open3'
 
 STATIC_DIR = File.join(__dir__)
+RAILS_BOOT = File.join(__dir__, 'rails_boot.rb')
+RAILS_GEMFILE = File.expand_path('../rails/Gemfile', __dir__)
+RAILS_FRAMEWORK = %r{/((?:action|active)\w+|railties)/lib/}
+# A Rails snippet compiles hundreds of framework methods; cap what we send.
+MAX_RESPONSE_BYTES = 15 * 1024 * 1024
+
+# "where@/app/rails/activerecord/lib/..." -> "where@activerecord/lib/..."
+def short_name(name)
+  name.sub(%r{@[^@]*?#{RAILS_FRAMEWORK}}) { "@#{$1}/lib/" }.sub(%r{@[^@]*/gems/}, '@')
+end
 
 def handle_execute(body)
   timestamp = (Time.now.to_f * 1_000_000_000).to_i
@@ -17,17 +27,24 @@ def handle_execute(body)
   parsed = JSON.parse(body)
   code = parsed['code']
   call_threshold = parsed['callThreshold'] || 2
+  rails = parsed['rails'] == true
 
   puts "Writing body of request to #{file_path}"
   File.open(file_path, "w") do |file|
     file.puts(code)
   end
 
+  # On /rails, boot Rails with ZJIT off; rails_boot.rb enables it afterwards.
+  rails_args = rails ? ["--zjit-disable", "-r", RAILS_BOOT] : []
+  rails_env = rails ? { 'BUNDLE_GEMFILE' => RAILS_GEMFILE } : {}
+  raise "Rails is not set up; run rails/setup.sh" if rails && !Dir.exist?(File.join(File.dirname(RAILS_GEMFILE), 'src'))
   stdout_and_stderr_s, status = Open3.capture2e(
+    rails_env,
     "ruby",
     "--zjit",
     "--zjit-call-threshold=#{call_threshold}",
     "--zjit-dump-hir-iongraph",
+    *rails_args,
     file_path
   )
 
@@ -51,10 +68,19 @@ def handle_execute(body)
   end
 
   functions.map! { |f| JSON.parse(f) }
-  # Sort user-defined functions first; builtins and gem functions last
+  # Sort user-defined functions first, then Rails; builtins and gem functions last
   functions.sort_by! do |func|
     name = func['name'] || ''
-    name.include?(file_name) ? 0 : 1
+    name.include?(file_name) ? 0 : name.match?(RAILS_FRAMEWORK) ? 1 : 2
+  end
+
+  if rails
+    functions.each { |func| func['name'] = short_name(func['name'] || '') }
+    bytes = 0
+    functions = functions.take_while.with_index do |func, i|
+      bytes += JSON.generate(func).bytesize
+      i.zero? || bytes <= MAX_RESPONSE_BYTES
+    end
   end
 
   puts "Found #{output_dir} with #{functions.length} function(s)"
@@ -74,7 +100,8 @@ rescue => e
 end
 
 def serve_static_file(path)
-  file_path = File.join(STATIC_DIR, path == '/' ? 'index.html' : path)
+  path = { '/' => 'index.html', '/rails' => 'rails.html' }.fetch(path, path)
+  file_path = File.join(STATIC_DIR, path)
 
   return [404, { 'Content-Type' => 'text/plain' }, 'Not Found'] unless File.exist?(file_path)
 
