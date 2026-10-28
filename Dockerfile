@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump ruby/setup-ruby 2026-10-27T02:47:35Z
-ENV RUBY_REVISION=9647794c8931553a301b3ea5ba09a389ea75ccb2
+# REV: [ruby/prism] Define PRISM_OOM 2026-10-28T05:56:30Z
+ENV RUBY_REVISION=e80cd771b306d69623d01d6d62d3f5c3f7b6ec78
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
