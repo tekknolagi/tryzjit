@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Respect enclosing group and platforms for gemspec dependencies 2026-10-30T05:47:31Z
-ENV RUBY_REVISION=d531b6bc5591d858031dca55b52ea12826359a19
+# REV: Store all encoding-specific variants of regex 2026-10-31T03:35:19Z
+ENV RUBY_REVISION=3c6a1c7a86b5a45b87e657f2843d5c8b406ef33f
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
