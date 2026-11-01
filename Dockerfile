@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Store all encoding-specific variants of regex 2026-10-31T03:35:19Z
-ENV RUBY_REVISION=3c6a1c7a86b5a45b87e657f2843d5c8b406ef33f
+# REV: Bump the jit group across 1 directory with 2 updates 2026-11-01T02:29:06Z
+ENV RUBY_REVISION=9d27d6b5851350c060a912afd3f56860d0391eb8
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
