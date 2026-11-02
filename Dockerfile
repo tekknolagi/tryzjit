@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bump the jit group across 1 directory with 2 updates 2026-11-01T02:29:06Z
-ENV RUBY_REVISION=9d27d6b5851350c060a912afd3f56860d0391eb8
+# REV: [DOC] Doc for MatchData#integer_at 2026-11-02T02:49:10Z
+ENV RUBY_REVISION=bfb5f2c295a814312dfc3a5d2b2bb34793342646
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
