@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [DOC] Doc for MatchData#integer_at 2026-11-02T02:49:10Z
-ENV RUBY_REVISION=bfb5f2c295a814312dfc3a5d2b2bb34793342646
+# REV: [Bug #22496] Make lazy `each_with_index` call super 2026-11-03T03:00:23Z
+ENV RUBY_REVISION=90dbced7956a677ed7efdec15d2de75ecc81eea2
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
