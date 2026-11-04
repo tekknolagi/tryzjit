@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #22496] Make lazy `each_with_index` call super 2026-11-03T03:00:23Z
-ENV RUBY_REVISION=90dbced7956a677ed7efdec15d2de75ecc81eea2
+# REV: [ruby/rubygems] Skip loading default gemspecs the bundle already has 2026-11-04T05:48:18Z
+ENV RUBY_REVISION=3432bdefeff0193027a236bff1c28fcaefc76d00
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
