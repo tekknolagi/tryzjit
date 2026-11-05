@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Skip loading default gemspecs the bundle already has 2026-11-04T05:48:18Z
-ENV RUBY_REVISION=3432bdefeff0193027a236bff1c28fcaefc76d00
+# REV: [ruby/rubygems] Tag each locked content address with the Ruby ABI it is built for 2026-11-05T04:06:36Z
+ENV RUBY_REVISION=7709aa259b0636491fc099f4f6b18005b05d6dbb
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
