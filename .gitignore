@@ -1,0 +1,4 @@
+rails/src/
+rails/vendor/
+rails/.bundle/
+rails/Gemfile.lock

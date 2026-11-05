@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+gem "rails", path: "src"
+gem "sqlite3"
+gem "tzinfo-data"
