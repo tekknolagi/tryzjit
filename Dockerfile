@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Tag each locked content address with the Ruby ABI it is built for 2026-11-05T04:06:36Z
-ENV RUBY_REVISION=7709aa259b0636491fc099f4f6b18005b05d6dbb
+# REV: [ruby/test-unit-ruby-core] Freeze `RbConfig.ruby` for sharing among Ractors 2026-11-06T04:47:16Z
+ENV RUBY_REVISION=37003e92e8e59dca22c8f71fff101109192b82a9
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
