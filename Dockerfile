@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/test-unit-ruby-core] Freeze `RbConfig.ruby` for sharing among Ractors 2026-11-06T04:47:16Z
-ENV RUBY_REVISION=37003e92e8e59dca22c8f71fff101109192b82a9
+# REV: [ruby/zlib] Update the buffer length before expanding it in Deflate#params 2026-11-07T03:41:29Z
+ENV RUBY_REVISION=aec71b2a5bfca12f86323319b62dc6af3188bd43
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
