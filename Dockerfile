@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/zlib] Update the buffer length before expanding it in Deflate#params 2026-11-07T03:41:29Z
-ENV RUBY_REVISION=aec71b2a5bfca12f86323319b62dc6af3188bd43
+# REV: win32: Define HAVE_VA_ARGS_MACRO for clang-cl 2026-11-08T04:20:24Z
+ENV RUBY_REVISION=ac2cc760aade8201071a841da0a9a1b8a824c772
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
