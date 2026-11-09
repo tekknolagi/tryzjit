@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: win32: Define HAVE_VA_ARGS_MACRO for clang-cl 2026-11-08T04:20:24Z
-ENV RUBY_REVISION=ac2cc760aade8201071a841da0a9a1b8a824c772
+# REV: [ruby/rubygems] Fix negated include_gems for gem names with dashes 2026-11-09T05:53:37Z
+ENV RUBY_REVISION=2102a46d1f4e96dfc8918e44652902869441aee5
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
