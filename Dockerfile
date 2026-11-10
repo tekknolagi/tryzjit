@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/rubygems] Fix negated include_gems for gem names with dashes 2026-11-09T05:53:37Z
-ENV RUBY_REVISION=2102a46d1f4e96dfc8918e44652902869441aee5
+# REV: Check array modifiability in Array#fill (#19821) 2026-11-10T05:51:58Z
+ENV RUBY_REVISION=dd0ff240523781569ade1d438e16df2d381070aa
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
