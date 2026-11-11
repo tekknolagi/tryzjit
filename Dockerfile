@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Check array modifiability in Array#fill (#19821) 2026-11-10T05:51:58Z
-ENV RUBY_REVISION=dd0ff240523781569ade1d438e16df2d381070aa
+# REV: [ruby/mmtk] Bindings for MMTK harness_begin and harness_end 2026-11-11T03:53:56Z
+ENV RUBY_REVISION=5ef4ff5e37fc596d0768f063a73ae4c6d0cf9639
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
