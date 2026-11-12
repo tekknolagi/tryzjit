@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/mmtk] Bindings for MMTK harness_begin and harness_end 2026-11-11T03:53:56Z
-ENV RUBY_REVISION=5ef4ff5e37fc596d0768f063a73ae4c6d0cf9639
+# REV: Fix crash/hang sending to the main Ractor after fork 2026-11-12T05:35:57Z
+ENV RUBY_REVISION=526384b77deb52f1c9ef1ed7d55345b3f0e07313
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
