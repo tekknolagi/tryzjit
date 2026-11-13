@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix crash/hang sending to the main Ractor after fork 2026-11-12T05:35:57Z
-ENV RUBY_REVISION=526384b77deb52f1c9ef1ed7d55345b3f0e07313
+# REV: Read and store fields_obj atomically for structs and classes/modules 2026-11-13T05:50:05Z
+ENV RUBY_REVISION=6a894df4ecb9de7706d993a66bbd2d1a272d3268
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
