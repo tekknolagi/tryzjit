@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Read and store fields_obj atomically for structs and classes/modules 2026-11-13T05:50:05Z
-ENV RUBY_REVISION=6a894df4ecb9de7706d993a66bbd2d1a272d3268
+# REV: [Bug #22540] Restore process options after chdir failure 2026-11-14T03:28:47Z
+ENV RUBY_REVISION=ccaceb137d461e9f88f820886a4e94a0a0b59bf2
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
