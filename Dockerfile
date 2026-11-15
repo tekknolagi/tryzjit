@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [Bug #22540] Restore process options after chdir failure 2026-11-14T03:28:47Z
-ENV RUBY_REVISION=ccaceb137d461e9f88f820886a4e94a0a0b59bf2
+# REV: [ruby/date] Add tests for untested Date and DateTime behavior 2026-11-14T18:00:28Z
+ENV RUBY_REVISION=88ea6fd282d6443a8197949a96f24373a2601136
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
