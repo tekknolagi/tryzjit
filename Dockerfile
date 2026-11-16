@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/date] Add tests for untested Date and DateTime behavior 2026-11-14T18:00:28Z
-ENV RUBY_REVISION=88ea6fd282d6443a8197949a96f24373a2601136
+# REV: [ruby/date] Check the offset when loading the old marshal format 2026-11-16T02:30:06Z
+ENV RUBY_REVISION=9c7bc705b8bd4542beac71542a8ea79f9bb7622b
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
