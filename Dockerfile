@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: [ruby/date] Check the offset when loading the old marshal format 2026-11-16T02:30:06Z
-ENV RUBY_REVISION=9c7bc705b8bd4542beac71542a8ea79f9bb7622b
+# REV: Return from rb_parser_enc_cr_str_buf_cat after an incompatible encoding error 2026-11-17T05:29:25Z
+ENV RUBY_REVISION=ebdf919795c0983696023691177045014435551c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
