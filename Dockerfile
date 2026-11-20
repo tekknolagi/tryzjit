@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Automate docker-library/official-images PRs on release (#19969) 2026-11-18T05:51:07Z
-ENV RUBY_REVISION=3e6bc59a1e118c50a9a5feac58a56f82bb8eff41
+# REV: Fix missing write-barrier in Array#sort! 2026-11-20T03:45:00Z
+ENV RUBY_REVISION=88e0be344d5fe2a189fb0d0e03ec62dd83406b4f
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
