@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix missing write-barrier in Array#sort! 2026-11-20T03:45:00Z
-ENV RUBY_REVISION=88e0be344d5fe2a189fb0d0e03ec62dd83406b4f
+# REV: ZJIT: Align Integer#downto with the C implementation (#19787) 2026-11-20T19:18:13Z
+ENV RUBY_REVISION=b84532add768500d63080f529f7b68449fba7e7d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
