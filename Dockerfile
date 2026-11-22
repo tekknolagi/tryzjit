@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: ZJIT: Align Integer#downto with the C implementation (#19787) 2026-11-20T19:18:13Z
-ENV RUBY_REVISION=b84532add768500d63080f529f7b68449fba7e7d
+# REV: Fix use-after-free in Array#sort! when tmp shared 2026-11-22T01:08:16Z
+ENV RUBY_REVISION=297f4b2573870c708879ed9ad3d76fad0f91103a
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
