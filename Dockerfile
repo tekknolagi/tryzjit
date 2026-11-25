@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Fix use-after-free in Array#sort! when tmp shared 2026-11-22T01:08:16Z
-ENV RUBY_REVISION=297f4b2573870c708879ed9ad3d76fad0f91103a
+# REV: Disable the match cache when the number of cache points overflows long 2026-11-25T05:50:40Z
+ENV RUBY_REVISION=84a8f0a8e65fddb62fae07c4614806f0a53e5715
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
