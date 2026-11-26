@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Disable the match cache when the number of cache points overflows long 2026-11-25T05:50:40Z
-ENV RUBY_REVISION=84a8f0a8e65fddb62fae07c4614806f0a53e5715
+# REV: Bound the regexp lock test helper by time 2026-11-26T05:47:00Z
+ENV RUBY_REVISION=6a3f481d6b42b0f8e11bb9dd37aa37a0def4f94d
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
