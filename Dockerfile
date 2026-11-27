@@ -14,8 +14,8 @@ RUN rustup default 1.85
 
 FROM builder as build
 WORKDIR /app
-# REV: Bound the regexp lock test helper by time 2026-11-26T05:47:00Z
-ENV RUBY_REVISION=6a3f481d6b42b0f8e11bb9dd37aa37a0def4f94d
+# REV: Accept Windows error variants for utime with a trailing slash 2026-11-27T05:37:06Z
+ENV RUBY_REVISION=7ea7b74f6c2b29ea7e12e2afc735446dfa27951c
 RUN git init ruby
 WORKDIR /app/ruby
 RUN git remote add origin https://github.com/ruby/ruby.git
